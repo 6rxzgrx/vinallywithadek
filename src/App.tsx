@@ -6,7 +6,9 @@ import { Suspense, lazy, useEffect, useRef, useState } from 'react';
 
 // Components
 import { ConfigProvider } from 'antd';
+import { AppLoader } from './components/AppLoader';
 import { AppLayout } from './components/Layout';
+import { preloadAllAssets } from './utils/preloadAssets';
 import {
 	Route,
 	BrowserRouter as Router,
@@ -49,7 +51,7 @@ interface StorageData {
 const setItemWithExpiry = (
 	key: string,
 	value: string,
-	expiryTime: number = STORAGE_EXPIRY_TIME
+	expiryTime: number = STORAGE_EXPIRY_TIME,
 ) => {
 	const item: StorageData = {
 		value,
@@ -113,6 +115,12 @@ const RootComponent = () => {
 	const container = useRef<HTMLDivElement | null>(null);
 	const language = useAppSelector((state) => state.language.language);
 	const [showLogin, setShowLogin] = useState(true);
+	const [assetsReady, setAssetsReady] = useState(false);
+
+	// Preload all images and videos on first load, then show login/app
+	useEffect(() => {
+		preloadAllAssets().then(() => setAssetsReady(true));
+	}, []);
 
 	// Prefetch wishes on first app open so Wedding Wish page doesn't show loading
 	useEffect(() => {
@@ -155,8 +163,10 @@ const RootComponent = () => {
 			modalContainers.forEach((container) => {
 				const element = container as HTMLElement;
 				// Force dark background for all modal containers (matching login modal #121212)
-				if (element.style.background !== 'rgb(18, 18, 18)' && 
-				    element.style.background !== '#121212') {
+				if (
+					element.style.background !== 'rgb(18, 18, 18)' &&
+					element.style.background !== '#121212'
+				) {
 					element.style.background = '#121212';
 					element.style.backgroundColor = '#121212';
 				}
@@ -225,6 +235,11 @@ const RootComponent = () => {
 		},
 		{ path: '*', element: <Page404 /> },
 	];
+
+	// Show loader until assets are preloaded, then show login or main app
+	if (!assetsReady) {
+		return <AppLoader />;
+	}
 
 	return (
 		<Router basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
