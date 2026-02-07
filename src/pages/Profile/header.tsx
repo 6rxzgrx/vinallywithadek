@@ -3,6 +3,7 @@ import { Col, Row, Space } from 'antd';
 // I18n
 import { useTranslation } from 'react-i18next';
 import { VerifiedIcon } from '../../components/Icons';
+import { getImagePublicPath } from '@/utils/getPublicPath';
 
 export const ProfileHeader = () => {
 	const { t } = useTranslation(['profile']);
@@ -14,7 +15,7 @@ export const ProfileHeader = () => {
 					<Col xs={24} sm={6} lg={5}>
 						<img
 							alt="franco profile pic"
-							src={`/images/profile.jpg`}
+							src={getImagePublicPath('profile.jpg')}
 							className="profile-img"
 						/>
 					</Col>

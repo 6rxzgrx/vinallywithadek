@@ -1,5 +1,5 @@
 // Utils
-import { getAlbumPath } from '../../utils/getPublicPath';
+import { getAlbumPath, getImagePublicPath } from '../../utils/getPublicPath';
 
 // Interfaces
 import type { Playlist, Song } from '../../interfaces/types';
@@ -10,11 +10,9 @@ export enum WeddingGiftTypesEnum {
 	GIFT_3 = 'GIFT_TYPE_SEND_GIFT',
 }
 
-const publicURL = (url: string) => (url.startsWith('/') ? url : `/${url}`);
-
 export const Gift1: Song = {
 	name: 'GIFT_1_NAME',
-	imageUrl: publicURL('/images/wedding-gift/bri.png'),
+	imageUrl: getImagePublicPath('wedding-gift/bri.png'),
 	length: 'GIFT_1_ARTIST',
 	explanation: 'GIFT_EXPLANATION_1',
 	types: [WeddingGiftTypesEnum.GIFT_1],
@@ -28,7 +26,7 @@ export const Gift1: Song = {
 
 export const Gift2: Song = {
 	name: 'GIFT_2_NAME',
-	imageUrl: publicURL('/images/wedding-gift/bca.png'),
+	imageUrl: getImagePublicPath('wedding-gift/bca.png'),
 	length: 'GIFT_2_ARTIST',
 	explanation: 'GIFT_EXPLANATION_2',
 	types: [WeddingGiftTypesEnum.GIFT_1],
@@ -42,7 +40,7 @@ export const Gift2: Song = {
 
 export const Gift3: Song = {
 	name: 'GIFT_3_NAME',
-	imageUrl: publicURL('/images/wedding-gift/mandiri.png'),
+	imageUrl: getImagePublicPath('wedding-gift/mandiri.png'),
 	length: 'GIFT_3_ARTIST',
 	explanation: 'GIFT_EXPLANATION_3',
 	types: [WeddingGiftTypesEnum.GIFT_1],
@@ -56,7 +54,7 @@ export const Gift3: Song = {
 
 export const Gift4: Song = {
 	name: 'GIFT_4_NAME',
-	imageUrl: publicURL('/images/wedding-gift/dana.png'),
+	imageUrl: getImagePublicPath('wedding-gift/dana.png'),
 	length: 'GIFT_4_ARTIST',
 	explanation: 'GIFT_EXPLANATION_4',
 	types: [WeddingGiftTypesEnum.GIFT_2],
@@ -70,7 +68,7 @@ export const Gift4: Song = {
 
 export const Gift5: Song = {
 	name: 'GIFT_5_NAME',
-	imageUrl: publicURL('/images/wedding-gift/jago.png'),
+	imageUrl: getImagePublicPath('wedding-gift/jago.png'),
 	length: 'GIFT_5_ARTIST',
 	explanation: 'GIFT_EXPLANATION_5',
 	types: [WeddingGiftTypesEnum.GIFT_2],
@@ -84,7 +82,7 @@ export const Gift5: Song = {
 
 export const Gift6: Song = {
 	name: 'GIFT_6_NAME',
-	imageUrl: publicURL('/images/wedding-gift/shopee.png'),
+	imageUrl: getImagePublicPath('wedding-gift/shopee.png'),
 	length: 'GIFT_6_ARTIST',
 	explanation: 'GIFT_EXPLANATION_6',
 	types: [WeddingGiftTypesEnum.GIFT_2],
@@ -98,7 +96,7 @@ export const Gift6: Song = {
 
 export const Gift7: Song = {
 	name: 'GIFT_7_NAME',
-	imageUrl: publicURL('/images/wedding-gift/home.png'),
+	imageUrl: getImagePublicPath('wedding-gift/home.png'),
 	length: 'GIFT_7_ARTIST',
 	description: 'GIFT_DETAILS_7',
 	types: [WeddingGiftTypesEnum.GIFT_3],

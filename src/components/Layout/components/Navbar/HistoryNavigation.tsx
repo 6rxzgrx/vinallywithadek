@@ -3,6 +3,7 @@ import ForwardBackwardsButton from '../../../../pages/Home/ForwardBackwardsButto
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from '../../../Tooltip';
+import { getImagePublicPath } from '@/utils/getPublicPath';
 
 const HistoryNavigation = () => {
 	const { t } = useTranslation(['navbar']);
@@ -39,7 +40,7 @@ const HistoryNavigation = () => {
 					}}
 				>
 					<img
-						src="/images/invitation-logo.svg"
+						src={getImagePublicPath('invitation-logo.svg')}
 						alt="Invitation Logo"
 						style={{ width: 35, height: 35, filter: 'brightness(0) invert(1)' }}
 					/>

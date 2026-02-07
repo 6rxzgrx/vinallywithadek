@@ -1,5 +1,5 @@
 // Utils
-import { getAlbumPath } from '../../utils/getPublicPath';
+import { getAlbumPath, getImagePublicPath } from '../../utils/getPublicPath';
 
 // Constants
 import { GedungCarakaPutra } from './thePlace';
@@ -12,12 +12,10 @@ export enum TheDayTypesEnum {
 	RECEPTION = 'Reception',
 }
 
-const publicURL = (url: string) => (url.startsWith('/') ? url : `/${url}`);
-
 // Song 2: Reception
 export const Reception: Song = {
 	name: 'Reception',
-	imageUrl: publicURL('/images/theday/reception.png'),
+	imageUrl: getImagePublicPath('theday/reception.png'),
 	length: 'RECEPTION_LENGTH',
 	description: 'RECEPTION_DESCRIPTION',
 	explanation: 'RECEPTION_EXPLANATION',
@@ -29,7 +27,7 @@ export const Reception: Song = {
 // Song 1: Wedding Ceremony
 export const WeddingCeremony: Song = {
 	name: 'Wedding Ceremony',
-	imageUrl: publicURL('/images/theday/wedding-ceremony.png'),
+	imageUrl: getImagePublicPath('theday/wedding-ceremony.png'),
 	length: 'WEDDING_CEREMONY_LENGTH',
 	description: 'WEDDING_CEREMONY_DESCRIPTION',
 	explanation: 'WEDDING_CEREMONY_EXPLANATION',

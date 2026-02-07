@@ -1,9 +1,10 @@
 import type { PageData } from './types';
+import { getImagePublicPath } from '@/utils/getPublicPath';
 
 export const welcomePage: PageData = {
 	id: 'welcome',
 	title: 'Welcome',
-	image: '/images/pages/welcome.png',
+	image: getImagePublicPath('pages/welcome.png'),
 	subtitle: "Assalamu'alaikum Warahmatullahi Wabarakatuh",
 	color: '#422023',
 	content: [

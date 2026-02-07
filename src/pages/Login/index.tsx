@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { useAppSelector } from '../../store/store';
 import './styles.scss';
+import { getImagePublicPath } from '@/utils/getPublicPath';
 
 interface LoginProps {
 	onLogin: () => void;
@@ -40,7 +41,7 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 				{/* Logo */}
 				<div className="login-logo">
 					<img
-						src="/images/invitation-logo.svg"
+						src="getImagePublicPathinvitation-logo.svg"
 						alt="Invitation Logo"
 						className="login-logo-svg"
 						style={{ filter: 'brightness(0) invert(1)' }}
@@ -53,12 +54,16 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 				{/* Information message */}
 				<div className="login-info">
 					<div className="login-info-icon">
-						<img src="/images/info.svg" alt="Info" className="login-info-svg" />
+						<img
+							src={getImagePublicPath('info.svg')}
+							alt="Info"
+							className="login-info-svg"
+						/>
 					</div>
 					<p className="login-info-text">
 						Youre invited to the wedding of <b>Adek & Vivi</b> on 14th of
-						February 2026 in <b>Kesamben,Blitar, Indonesia</b>. You can access our
-						invitation here with the correct password.
+						February 2026 in <b>Kesamben,Blitar, Indonesia</b>. You can access
+						our invitation here with the correct password.
 					</p>
 				</div>
 

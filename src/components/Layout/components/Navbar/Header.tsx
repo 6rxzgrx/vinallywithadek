@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Space } from 'antd';
-
+import { getImagePublicPath } from '@/utils/getPublicPath';
 const Header = ({ opacity }: { opacity: number; title?: string }) => {
 	const { t } = useTranslation(['navbar']);
 
@@ -28,7 +28,7 @@ const Header = ({ opacity }: { opacity: number; title?: string }) => {
 								id="user-avatar"
 								alt="User Avatar"
 								style={{ marginTop: -1 }}
-								src={`/images/profile.jpg`}
+								src={getImagePublicPath('profile.jpg')}
 							/>
 						</Link>
 					</div>

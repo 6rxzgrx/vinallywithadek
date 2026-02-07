@@ -2,29 +2,33 @@ import { memo } from 'react';
 import { HeartLike } from './Heart';
 import { useAppSelector } from '../../../../store/store';
 import { getCurrentSongData } from '../../../../store/slices/playingBar';
+import { getImagePublicPath } from '@/utils/getPublicPath';
 
 const SongDetails = memo(() => {
-  const currentSongData = useAppSelector(getCurrentSongData);
+	const currentSongData = useAppSelector(getCurrentSongData);
 
-  return (
-    <div className='flex flex-row items-center'>
-      <img
-        alt='Album Cover'
-        className='album-cover'
-        src={`/images/songs/${currentSongData.image}`}
-      />
-      <div id='song-and-artist-name'>
-        <p className='text-white font-bold song-title' title={currentSongData.name}>
-          {currentSongData.name}
-        </p>
-        <p className='text-gray-200 song-artist' title={currentSongData.artist}>
-          {currentSongData.artist}
-        </p>
-      </div>
+	return (
+		<div className="flex flex-row items-center">
+			<img
+				alt="Album Cover"
+				className="album-cover"
+				src={getImagePublicPath(`songs/${currentSongData.image}`)}
+			/>
+			<div id="song-and-artist-name">
+				<p
+					className="text-white font-bold song-title"
+					title={currentSongData.name}
+				>
+					{currentSongData.name}
+				</p>
+				<p className="text-gray-200 song-artist" title={currentSongData.artist}>
+					{currentSongData.artist}
+				</p>
+			</div>
 
-      <HeartLike />
-    </div>
-  );
+			<HeartLike />
+		</div>
+	);
 });
 
 export default SongDetails;

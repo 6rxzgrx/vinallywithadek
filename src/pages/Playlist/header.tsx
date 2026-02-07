@@ -16,6 +16,7 @@ import {
 	getCachedWishesCount,
 	WISHES_CACHED_EVENT_NAME,
 } from '../../constants/made-for/weddingwish';
+import { getImagePublicPath } from '@/utils/getPublicPath';
 
 interface PlaylistHeaderProps {
 	playlist: Playlist;
@@ -37,7 +38,7 @@ export const PlaylistHeader: FC<PlaylistHeaderProps> = ({
 
 	const isWeddingWish = playlist.name === 'Wedding Wish';
 	const [weddingWishCount, setWeddingWishCount] = useState(() =>
-		isWeddingWish ? getCachedWishesCount() || playlist.songs.length : 0
+		isWeddingWish ? getCachedWishesCount() || playlist.songs.length : 0,
 	);
 	useEffect(() => {
 		if (!isWeddingWish) return;
@@ -48,7 +49,9 @@ export const PlaylistHeader: FC<PlaylistHeaderProps> = ({
 		return () => window.removeEventListener(WISHES_CACHED_EVENT_NAME, handler);
 	}, [isWeddingWish]);
 	const displaySongCount =
-		isWeddingWish && weddingWishCount > 0 ? weddingWishCount : playlist.songs.length;
+		isWeddingWish && weddingWishCount > 0
+			? weddingWishCount
+			: playlist.songs.length;
 
 	// Truncate title to 15 characters
 	const playlistName = cvt(playlist.name);
@@ -137,7 +140,7 @@ export const PlaylistHeader: FC<PlaylistHeaderProps> = ({
 											className="playlist-avatar"
 											id="user-avatar"
 											alt="User Avatar"
-											src={`/images/profile.jpg`}
+											src={getImagePublicPath('profile.jpg')}
 										/>
 									</Link>
 									<h3 className="playlist-owner text-sm font-semibold text-white">

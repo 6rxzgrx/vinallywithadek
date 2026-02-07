@@ -1,9 +1,10 @@
 import type { PageData } from './types';
+import { getImagePublicPath } from '@/utils/getPublicPath';
 
 export const seeYouTherePage: PageData = {
 	id: 'see-you-there',
 	title: 'See You There',
-	image: '/images/pages/see-you-there.png',
+	image: getImagePublicPath('pages/see-you-there.png'),
 	subtitle: 'Wassalamu’alaikum Warahmatullahi Wabarakatuh',
 	color: '#5a4a3a',
 	content: [

@@ -1,15 +1,16 @@
 // Utils
-import { getAlbumPathWithoutLang } from '../../utils/getPublicPath';
+import {
+	getAlbumPathWithoutLang,
+	getImagePublicPath,
+} from '../../utils/getPublicPath';
 
 // Interfaces
 import type { Playlist, Song } from '../../interfaces/types';
 
-const publicURL = (url: string) => (url.startsWith('/') ? url : `/${url}`);
-
 // Example story - replace with actual stories
 export const Story1: Song = {
 	name: 'STORY_NAME_1',
-	imageUrl: publicURL('/images/ourstory/story1.png'),
+	imageUrl: getImagePublicPath('ourstory/story1.png'),
 	length: 'STORY_LENGTH_1',
 	description: 'STORY_DETAILS_1',
 	explanation: 'STORY_EXPLANATION_1',
@@ -20,7 +21,7 @@ export const Story1: Song = {
 // Example story - replace with actual stories
 export const Story2: Song = {
 	name: 'STORY_NAME_2',
-	imageUrl: publicURL('/images/ourstory/story2.png'),
+	imageUrl: getImagePublicPath('ourstory/story2.png'),
 	length: 'STORY_LENGTH_2',
 	description: 'STORY_DETAILS_2',
 	explanation: 'STORY_EXPLANATION_2',
@@ -31,7 +32,7 @@ export const Story2: Song = {
 // Example story - replace with actual stories
 export const Story3: Song = {
 	name: 'STORY_NAME_3',
-	imageUrl: publicURL('/images/ourstory/story3.png'),
+	imageUrl: getImagePublicPath('ourstory/story3.png'),
 	length: 'STORY_LENGTH_3',
 	description: 'STORY_DETAILS_3',
 	explanation: 'STORY_EXPLANATION_3',
@@ -42,7 +43,7 @@ export const Story3: Song = {
 // Example story - replace with actual stories
 export const Story4: Song = {
 	name: 'STORY_NAME_4',
-	imageUrl: publicURL('/images/ourstory/story4.png'),
+	imageUrl: getImagePublicPath('ourstory/story4.png'),
 	length: 'STORY_LENGTH_4',
 	description: 'STORY_DETAILS_4',
 	explanation: 'STORY_EXPLANATION_4',
@@ -53,7 +54,7 @@ export const Story4: Song = {
 // Example story - replace with actual stories
 export const Story5: Song = {
 	name: 'STORY_NAME_5',
-	imageUrl: publicURL('/images/ourstory/story5.png'),
+	imageUrl: getImagePublicPath('ourstory/story5.png'),
 	length: 'STORY_LENGTH_5',
 	description: 'STORY_DETAILS_5',
 	explanation: 'STORY_EXPLANATION_5',
@@ -64,7 +65,7 @@ export const Story5: Song = {
 // Example story - replace with actual stories
 export const Story6: Song = {
 	name: 'STORY_NAME_6',
-	imageUrl: publicURL('/images/ourstory/story1.png'),
+	imageUrl: getImagePublicPath('ourstory/story1.png'),
 	length: 'STORY_LENGTH_6',
 	description: 'STORY_DETAILS_6',
 	explanation: 'STORY_EXPLANATION_6',

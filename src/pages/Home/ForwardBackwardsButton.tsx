@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from '../../components/Tooltip';
 import { useTranslation } from 'react-i18next';
+import { getImagePublicPath } from '@/utils/getPublicPath';
 
 const ForwardBackwardsButton = ({ flip }: { flip: boolean }) => {
 	const navigate = useNavigate();
@@ -22,7 +23,7 @@ const ForwardBackwardsButton = ({ flip }: { flip: boolean }) => {
 			>
 				<img
 					alt={flip ? 'Backwards' : 'Forward'}
-					src={`/images/forward.svg`}
+					src={getImagePublicPath('forward.svg')}
 					className={`w-full h-full ${flip ? 'rotate-180' : ''}`}
 				/>
 			</button>
