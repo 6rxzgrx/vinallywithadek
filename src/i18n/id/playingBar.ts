@@ -1,0 +1,23 @@
+export const playingBar = {
+  'Now playing view': 'Tampilan sedang diputar',
+  Lyrics: 'Lirik',
+  Queue: 'Antrian',
+  'Connect to a device': 'Hubungkan ke perangkat',
+  Mute: 'Bisukan',
+  Unmute: 'Nyalakan suara',
+  'Full Screen': 'Layar Penuh',
+  'Now playing': 'Sedang diputar',
+  Next: 'Berikutnya',
+  Skills: 'Keterampilan',
+  Experience: 'Pengalaman',
+  Description: 'Deskripsi',
+  Images: 'Gambar',
+  'Click to view more': 'Klik untuk melihat lebih banyak',
+  Video: 'Video',
+  'Related projects': 'Proyek terkait',
+  'Exit full screen': 'Keluar dari layar penuh',
+  'Payment Details': 'Detail Pembayaran',
+  Home: 'Beranda',
+  Search: 'Cari',
+};
+

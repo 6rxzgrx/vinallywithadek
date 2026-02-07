@@ -1,0 +1,225 @@
+@use './variables.scss' as *;
+
+.Profile-section {
+	.profile-header {
+		background:
+			linear-gradient(180deg, transparent 0px, #222833 80%),
+			url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=');
+
+		.profile-title {
+			visibility: visible;
+			width: 100%;
+			font-size: 4.5rem;
+			white-space: nowrap;
+			margin-block: 0px;
+			color: $text-primary-color;
+			font-weight: 900;
+
+			@media (max-width: $desktop-small-breakpoint) {
+				font-size: 3.5rem;
+			}
+
+			@media (max-width: $desktop-breakpoint) {
+				font-size: 3rem;
+			}
+
+			@media (max-width: 600px) {
+				font-size: 2rem;
+			}
+		}
+
+		@media (max-width: 600px) {
+			.owner span {
+				display: none;
+			}
+			.songs-number {
+				margin-bottom: 5px;
+				display: block !important;
+			}
+		}
+
+		.profile-img {
+			border-radius: 50%;
+			-webkit-box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+			box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+			-o-object-fit: cover;
+			object-fit: cover;
+			-o-object-position: center center;
+			object-position: center center;
+			height: 100%;
+			width: 100%;
+
+			@media (max-width: 575px) {
+				height: 50%;
+				width: 50%;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.profile-body {
+		height: 100%;
+		padding: 20px;
+		background: linear-gradient(#222833 -10%, rgb(18, 18, 18) 35%);
+
+		.about-me-title {
+			font-size: 1.3rem;
+			display: inline-block;
+			max-width: 100%;
+			overflow: hidden;
+			color: #fff;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			font-weight: 700;
+			margin-bottom: 16px;
+		}
+
+		.about-me-text {
+			margin-bottom: 32px;
+			p {
+				color: #b7b7b7;
+				margin-bottom: 20px;
+				font-weight: 400;
+				font-size: 15px;
+			}
+		}
+
+		.profile-stats {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 14px;
+			margin-bottom: 28px;
+
+			@media (min-width: 600px) {
+				grid-template-columns: 1fr 1fr 1fr;
+			}
+
+			@media (min-width: 900px) {
+				grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+				gap: 16px;
+			}
+		}
+
+		.profile-stat {
+			background: rgba(255, 255, 255, 0.05);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+			border-radius: 14px;
+			padding: 18px 16px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 6px;
+			transition:
+				background 0.2s ease,
+				border-color 0.2s ease,
+				transform 0.2s ease;
+
+			&:hover {
+				background: rgba(255, 255, 255, 0.07);
+				border-color: rgba(255, 255, 255, 0.12);
+				transform: translateY(-1px);
+			}
+
+			&__icon {
+				font-size: 1.5rem;
+				line-height: 1;
+			}
+
+			&__label {
+				font-size: 0.8rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+				color: rgba(255, 255, 255, 0.55);
+			}
+
+			&__value {
+				font-size: 1.75rem;
+				font-weight: 800;
+				color: #fff;
+				line-height: 1.1;
+				letter-spacing: -0.02em;
+
+				&--infinite {
+					font-size: 2rem;
+					opacity: 0.95;
+				}
+
+				&--tagline {
+					font-size: 1.25rem;
+					font-weight: 600;
+					font-style: italic;
+					color: rgba(255, 255, 255, 0.9);
+				}
+			}
+
+			&--default {
+				@media (min-width: 900px) {
+					&:nth-child(4) {
+						grid-column: span 1;
+					}
+				}
+			}
+
+			&--arguments {
+				grid-column: span 2;
+
+				@media (min-width: 600px) {
+					grid-column: span 2;
+				}
+
+				@media (min-width: 900px) {
+					grid-column: span 1;
+				}
+			}
+
+			&__vs {
+				display: flex;
+				align-items: baseline;
+				gap: 10px;
+				flex-wrap: wrap;
+			}
+
+			&__vs-divider {
+				font-size: 1rem;
+				font-weight: 600;
+				color: rgba(255, 255, 255, 0.5);
+				text-transform: lowercase;
+			}
+
+			&--food {
+				grid-column: span 2;
+				background: linear-gradient(
+					135deg,
+					rgba(255, 255, 255, 0.06) 0%,
+					rgba(255, 255, 255, 0.02) 100%
+				);
+				border-color: rgba(255, 255, 255, 0.1);
+
+				@media (min-width: 900px) {
+					grid-column: span 1;
+				}
+			}
+		}
+
+		.profile-related-row {
+			display: flex;
+			flex-wrap: nowrap;
+			width: 100%;
+			max-width: 100%;
+			margin-top: 2px;
+			margin-bottom: 20px;
+			padding-left: 0;
+			padding-right: 0;
+			box-sizing: border-box;
+
+			@media (min-width: 768px) {
+				flex-wrap: wrap;
+			}
+		}
+
+		.profile-related-col {
+			min-width: 0;
+		}
+	}
+}

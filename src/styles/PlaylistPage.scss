@@ -1,0 +1,621 @@
+@use './variables.scss' as *;
+
+.playlist-img {
+	box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+	border-radius: 4px;
+	height: 100%;
+	width: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	-o-object-position: center center;
+	object-position: center center;
+	max-width: 350px;
+
+	@media (max-width: $desktop-breakpoint) {
+		& {
+			max-width: 150px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		& {
+			max-width: 300px;
+			margin: 0 auto;
+		}
+	}
+}
+
+.songs-number {
+	font-weight: 400;
+}
+
+.playlist-list {
+	min-height: 60%;
+	padding: 30px;
+	transition: 'background: 0.5s';
+
+	.column-name {
+		color: rgb(186, 186, 186);
+	}
+
+	@media (max-width: $desktop-breakpoint) {
+		padding: 12px;
+		padding-top: 20px;
+		margin-bottom: 50px;
+
+		button:not(.circle-play) {
+			margin-bottom: 7px;
+
+			background-color: transparent !important;
+			&:active {
+				transform: scale(0.99);
+			}
+		}
+	}
+
+	.song-details {
+		.drawer-icon {
+			visibility: hidden;
+		}
+
+		.title {
+			font-size: 15px;
+			color: $text-primary-color;
+		}
+
+		.artist:hover {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+
+		p {
+			color: $text-secondary-color;
+			font-size: 14px;
+			font-weight: 400;
+		}
+
+		.song-details-play {
+			display: none;
+			font-size: 10px;
+			justify-content: center;
+
+			svg {
+				fill: $text-primary-color !important;
+			}
+		}
+
+		&:hover {
+			.song-details-index {
+				display: none;
+			}
+			.song-details-play {
+				display: flex;
+			}
+		}
+
+		@media (max-width: $desktop-breakpoint) {
+			img {
+				border-radius: 1px;
+			}
+
+			.title {
+				font-size: 13px;
+			}
+
+			p {
+				font-size: 11px;
+			}
+		}
+	}
+}
+
+.playlist-controls {
+	margin-bottom: 20px;
+}
+
+.playlist-table {
+	border-bottom: 1px solid #282c34;
+}
+
+.playlist-title {
+	visibility: visible;
+	width: 100%;
+	font-size: clamp(1.5rem, 5vw, 5rem);
+	white-space: nowrap;
+	margin-block: 0px;
+	font-weight: 600;
+	color: $text-primary-color;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin-bottom: 3px;
+	line-height: 1.2;
+	word-break: break-all;
+}
+
+.playlist-header-content {
+	padding: clamp(15px, 3vw, 30px);
+	padding-top: clamp(15px, 3vw, 30px);
+}
+
+.playlist-type {
+	font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+	margin-bottom: clamp(4px, 1vw, 8px);
+}
+
+.playlist-owner {
+	font-size: clamp(0.75rem, 1.2vw, 0.875rem) !important;
+}
+
+.playlist-description {
+	visibility: visible;
+	width: 100%;
+	font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+	margin-block: 0px;
+	font-weight: 400;
+	color: $text-primary-color;
+	opacity: 0.9;
+	line-height: 1.5;
+	margin-bottom: clamp(8px, 1.5vw, 10px);
+}
+
+@media (min-width: $desktop-breakpoint) {
+	.playlist-description {
+		max-width: 600px;
+	}
+}
+
+@media (max-width: 1130px) {
+	.playlist-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+	}
+
+	.playlist-description {
+		font-size: clamp(0.75rem, 1.1vw, 0.8125rem);
+	}
+}
+
+@media (max-width: $desktop-breakpoint) {
+	.playlist-title {
+		font-size: clamp(1.5rem, 6vw, 2rem);
+	}
+
+	.playlist-description {
+		font-size: clamp(0.75rem, 3vw, 0.75rem);
+		max-width: 100%;
+	}
+
+	.mobile-hidden {
+		display: none;
+	}
+}
+
+@media (min-width: $desktop-breakpoint) {
+	.desktop-hidden {
+		display: none;
+	}
+}
+
+@media (max-width: $desktop-small-breakpoint) {
+	.tablet-hidden {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.playlist-title {
+		margin-top: clamp(8px, 2vw, 10px);
+		font-size: clamp(1.25rem, 5vw, 1.75rem);
+	}
+
+	.playlist-description {
+		font-size: clamp(0.6875rem, 2.5vw, 0.6875rem);
+	}
+}
+
+.library-list-container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	height: 100%;
+	justify-content: flex-start;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+
+.library-playlists-wrapper {
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.library-playlists-scroll {
+	overflow-y: auto;
+	overflow-x: hidden;
+	flex: 1;
+	padding-right: 8px;
+	margin-right: -8px;
+	padding-top: 0;
+	padding-bottom: 0;
+
+	// Hide scrollbar but allow scrolling
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.library-language-button {
+	flex-shrink: 0;
+	margin-top: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	@media (max-width: $desktop-breakpoint) {
+		display: block !important;
+		padding-top: 15px;
+		padding-bottom: 20px;
+		padding-left: 8px;
+	}
+}
+
+// Collapsed state
+.library:not(.open) {
+	.library-card {
+		margin-bottom: 0px;
+		padding-left: 4px;
+		padding-right: 4px;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		justify-content: center;
+		align-items: center;
+		width: fit-content;
+		min-width: fit-content;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.library-playlists-scroll {
+		padding-left: 0px;
+		padding-right: 8px;
+	}
+}
+
+// Open state
+.library.open {
+	.library-list-container {
+		width: 100%;
+		overflow-x: hidden; // Prevent horizontal overflow
+	}
+
+	// Ensure library cards don't overflow when container is 120% wide
+	.library-card {
+		max-width: 100%; // Constrain to container width
+		width: 100%;
+		box-sizing: border-box;
+		padding-left: 8px;	
+		padding-right: 8px;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		margin-bottom: 0;
+	}
+
+	.library-playlists-scroll {
+		padding-left: 0px;
+		padding-right: 8px;
+	}
+}
+
+.ant-avatar-group .ant-avatar {
+	border-color: #0000005c;
+}
+
+.ant-avatar-group > *:not(:first-child) {
+	margin-inline-start: 1px;
+}
+
+.ant-avatar-group-popover {
+	.ant-popover-arrow {
+		display: none;
+	}
+
+	.ant-popover-inner {
+		background-color: #242424 !important;
+	}
+}
+
+.order-button {
+	color: #bababa;
+	font-weight: 400;
+	font-size: 0.8rem;
+	&:hover {
+		color: white;
+	}
+}
+
+// Add Wish Modal Styles (matching login modal style)
+.add-wish-modal {
+	.ant-modal-content {
+		background-color: #121212 !important;
+		border-radius: 8px;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+	}
+
+	.ant-modal-header {
+		background-color: transparent !important;
+		border-bottom: none !important;
+		padding: 24px 24px 0 24px;
+
+		.ant-modal-title {
+			color: white !important;
+			font-size: 1.5rem;
+			font-weight: 700;
+		}
+	}
+
+	.ant-modal-close {
+		color: white !important;
+		top: 16px;
+		right: 16px;
+
+		.ant-modal-close-x {
+			color: white !important;
+			font-size: 20px;
+			
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	.ant-modal-body {
+		padding: 24px;
+		color: white;
+
+		.ant-form-item-label > label {
+			color: white !important;
+		}
+
+		.ant-input,
+		.ant-input:focus,
+		.ant-input-focused {
+			background-color: transparent !important;
+			border-color: #878787 !important;
+			color: white !important;
+			padding: 14px !important;
+			min-height: 48px !important;
+			font-size: 16px !important;
+
+			&::placeholder {
+				color: #878787 !important;
+			}
+
+			&:hover {
+				border-color: #878787 !important;
+			}
+
+			&:focus,
+			&.ant-input-focused {
+				border-color: white !important;
+				box-shadow: none !important;
+			}
+		}
+
+		textarea.ant-input {
+			background-color: transparent !important;
+			border-color: #878787 !important;
+			color: white !important;
+			resize: none;
+
+			&::placeholder {
+				color: #878787 !important;
+			}
+
+			&:hover {
+				border-color: #878787 !important;
+			}
+
+			&:focus,
+			&.ant-input-focused {
+				border-color: white !important;
+				box-shadow: none !important;
+			}
+		}
+
+		.ant-form-item-explain-error {
+			color: #e22134 !important;
+		}
+
+		.cancel-button {
+			background-color: transparent !important;
+			border-color: #878787 !important;
+			color: white !important;
+			padding: 10px 24px !important;
+			height: auto !important;
+			min-height: 36px !important;
+			font-size: 16px !important;
+			font-weight: 700 !important;
+
+			&:hover {
+				border-color: white !important;
+				color: white !important;
+			}
+		}
+
+		.submit-button {
+			background-color: #1db954 !important;
+			border-color: #1db954 !important;
+			color: #121212 !important;
+			font-weight: 700 !important;
+			padding: 10px 24px !important;
+			height: auto !important;
+			min-height: 36px !important;
+			font-size: 16px !important;
+
+			&:hover {
+				background-color: #1ed760 !important;
+				border-color: #1ed760 !important;
+				color: #121212 !important;
+				transform: scale(1.04);
+			}
+
+			&:active {
+				transform: scale(1);
+			}
+		}
+
+		.reload-avatar-button {
+			background-color: rgba(255, 255, 255, 0.1) !important;
+			border-color: #878787 !important;
+			color: white !important;
+			font-weight: 500 !important;
+			padding: 8px 16px !important;
+			height: auto !important;
+			min-height: 36px !important;
+			font-size: 14px !important;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.15) !important;
+				border-color: white !important;
+				color: white !important;
+			}
+
+			&:active {
+				transform: scale(0.98);
+			}
+		}
+	}
+}
+
+// Add Wish Modal - Responsive width via CSS
+.add-wish-modal {
+	@media (max-width: 768px) {
+		.ant-modal {
+			width: 90% !important;
+			max-width: 90% !important;
+		}
+	}
+}
+
+// Success Modal Styles with Animations
+.wish-success-modal {
+	.ant-modal-content {
+		background-color: #121212 !important;
+		border-radius: 16px;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+		animation: modalFadeIn 0.3s ease-out;
+		overflow: hidden;
+	}
+
+	@media (max-width: 768px) {
+		.ant-modal {
+			width: 90% !important;
+			max-width: 90% !important;
+		}
+	}
+
+	.ant-modal-close {
+		color: white !important;
+		top: 16px;
+		right: 16px;
+
+		.ant-modal-close-x {
+			color: white !important;
+			font-size: 20px;
+			
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	.ant-modal-body {
+		padding: 0 !important;
+	}
+
+	.wish-success-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 40px 32px;
+		text-align: center;
+
+		.wish-success-image {
+			margin-bottom: 24px;
+			animation: imageBounce 0.6s ease-out;
+
+			.success-image {
+				width: 120px;
+				height: 120px;
+				object-fit: cover;
+				border-radius: 50%;
+				animation: imagePulse 2s ease-in-out infinite;
+			}
+		}
+
+		.wish-success-title {
+			color: white !important;
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 1.5;
+			margin: 0;
+			animation: textFadeIn 0.5s ease-out 0.2s both;
+		}
+	}
+}
+
+// Animations
+@keyframes modalFadeIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.9) translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+@keyframes imageBounce {
+	0% {
+		opacity: 0;
+		transform: scale(0.5) translateY(-30px);
+	}
+	50% {
+		transform: scale(1.1) translateY(5px);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+@keyframes imagePulse {
+	0%, 100% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(30, 215, 96, 0.4);
+	}
+	50% {
+		transform: scale(1.05);
+		box-shadow: 0 0 0 10px rgba(30, 215, 96, 0);
+	}
+}
+
+@keyframes textFadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

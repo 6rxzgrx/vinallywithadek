@@ -1,0 +1,74 @@
+@use './variables.scss' as *;
+
+.Page-section {
+	.page-header {
+		.profile-title {
+			visibility: visible;
+			width: 100%;
+			font-size: 4.5rem;
+			white-space: nowrap;
+			margin-block: 0px;
+			color: $text-primary-color;
+			font-weight: 900;
+
+			@media (max-width: $desktop-small-breakpoint) {
+				font-size: 3.5rem;
+			}
+
+			@media (max-width: $desktop-breakpoint) {
+				font-size: 3rem;
+			}
+
+			@media (max-width: 600px) {
+				font-size: 2rem;
+			}
+		}
+
+		.profile-img {
+			box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+			border-radius: 4px;
+			height: 100%;
+			width: 100%;
+			-o-object-fit: cover;
+			object-fit: cover;
+			-o-object-position: center center;
+			object-position: center center;
+			max-width: 350px;
+
+			@media (max-width: $desktop-breakpoint) {
+				& {
+					max-width: 150px;
+				}
+			}
+
+			@media (max-width: 600px) {
+				& {
+					max-width: 300px;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+
+	.page-body {
+		height: 100%;
+		padding: 30px;
+		transition: 'background: 0.5s';
+
+		@media (max-width: $desktop-breakpoint) {
+			padding: 12px;
+			padding-top: 20px;
+			margin-bottom: 50px;
+		}
+
+		.page-content {
+			.page-text {
+				color: #b7b7b7;
+				margin-bottom: 20px;
+				font-weight: 400;
+				font-size: 15px;
+				line-height: 1.6;
+			}
+		}
+	}
+}

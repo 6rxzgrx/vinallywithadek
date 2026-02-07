@@ -1,0 +1,226 @@
+@use './variables.scss' as *;
+
+.language-button {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	background-color: transparent;
+	border-radius: var(--encore-button-corner-radius, 9999px);
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	text-transform: none;
+	touch-action: manipulation;
+	transition-duration: 33ms;
+	transition-property: background-color, border-color, color, box-shadow, filter,
+		transform;
+	user-select: none;
+	vertical-align: middle;
+	transform: translate3d(0px, 0px, 0px);
+	padding-block-start: calc(var(4px, 4px) - 1px);
+	padding-block-end: calc(var(4px, 4px) - 1px);
+	padding-inline-start: calc(15px);
+	padding-inline-end: calc(var(--encore-spacing-base, 16px) - 1px);
+	border: 1px solid var(--essential-subdued, #878787);
+	color: var(--text-base, white);
+	min-inline-size: 0px;
+	min-block-size: var(--encore-control-size-smaller, 32px);
+	display: inline-flex;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+
+	&.collapsed {
+		border: none;
+		padding: 0px;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+	}
+
+	&:hover {
+		transform: scale(1.05);
+
+		border: 2px solid var(--essential-subdued, white);
+
+		&.collapsed {
+			border: none;
+		}
+	}
+
+	&:active {
+		transform: scale(1);
+	}
+}
+
+.ant-modal {
+	padding-bottom: 0 !important;
+	border-radius: 8px;
+	background-color: #121212 !important;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+	.ant-modal-header,
+	.ant-modal-content {
+		background-color: #121212 !important;
+	}
+
+	.ant-modal-content {
+		border-radius: 8px;
+	}
+
+	.ant-modal-header {
+		border-bottom: none !important;
+		padding: 24px 24px 0 24px;
+
+		.ant-modal-title {
+			color: white !important;
+		}
+	}
+
+	.ant-modal-close {
+		color: white !important;
+		top: 16px;
+		right: 16px;
+
+		.ant-modal-close-x {
+			color: white !important;
+			
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	.ant-modal-body {
+		color: white;
+	}
+}
+
+// Target the modal wrapper and mask directly - ensure it's above everything
+// Use very specific selectors to override Ant Design defaults and PlaylistPage
+// Ant Design drawers typically use z-index 1000-1050, so we need much higher
+@media (max-width: $desktop-breakpoint) {
+	// Modal wrapper - highest priority, must be above everything including drawers
+	// Ant Design drawers use z-index ~1000, so we use 10000+
+	// Use :not() to ensure specificity
+	body > .ant-modal-wrap:not([style*='display: none']) {
+		z-index: 10000 !important;
+		position: fixed !important;
+	}
+
+	// Modal mask - should be just below wrapper
+	body > .ant-modal-mask:not([style*='display: none']) {
+		z-index: 9999 !important;
+		position: fixed !important;
+	}
+
+	// Modal content
+	.ant-modal-wrap .ant-modal {
+		z-index: 10000 !important;
+	}
+
+	.ant-modal-wrap .ant-modal-content {
+		z-index: 10000 !important;
+		position: relative !important;
+	}
+
+	// Ensure modal root is also high
+	.ant-modal-root {
+		z-index: 10000 !important;
+	}
+
+	// Override any Playlist-section or drawer z-index that might interfere
+	.Playlist-section {
+		z-index: auto !important;
+		position: relative !important; // Ensure it doesn't create stacking context
+	}
+
+	// Ensure drawers don't interfere (Ant Design drawers use ~1000)
+	.ant-drawer-wrap,
+	.ant-drawer-mask,
+	.ant-drawer-content-wrapper {
+		z-index: 1000 !important; // Keep drawers below modal
+	}
+
+	// Ensure Main-section doesn't create stacking context
+	.Main-section,
+	.Main-section-col {
+		z-index: auto !important;
+		position: relative !important;
+	}
+}
+
+.ant-divider {
+	border-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	height: calc(100% - var(--header-height));
+	overflow-y: scroll;
+	padding-block: 16px;
+	padding-inline: 24px;
+
+	// Mobile: vertical list layout
+	@media (max-width: $desktop-breakpoint) {
+		grid-template-columns: 1fr;
+		gap: 0;
+		padding-block: 8px;
+		padding-inline: 0;
+		max-height: calc(100vh - 200px);
+	}
+
+	button {
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		align-items: flex-start;
+		background-color: transparent;
+		border: 0;
+		color: inherit;
+		display: -webkit-inline-box;
+		display: -ms-inline-flexbox;
+		display: inline-flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		padding: 16px;
+
+		// Mobile: full width buttons with border
+		@media (max-width: $desktop-breakpoint) {
+			width: 100%;
+			padding: 16px 20px;
+			border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+			justify-content: flex-start;
+			text-align: left;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			&:active {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+		}
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		.title {
+			font-size: 1rem;
+			font-weight: 400;
+			color: $text-primary-color;
+		}
+
+		.subtitle {
+			font-size: 1rem;
+			font-weight: 400;
+			color: $text-secondary-color;
+		}
+	}
+}
