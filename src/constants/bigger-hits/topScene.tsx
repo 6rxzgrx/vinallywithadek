@@ -2,6 +2,7 @@
 import {
 	getAlbumPathWithoutLang,
 	getImagePublicPath,
+	getVideoPublicPath,
 } from '../../utils/getPublicPath';
 
 // Interfaces
@@ -13,7 +14,7 @@ export const Scene1: Song = {
 	length: '3:45',
 	explanation: 'This scene captures a special moment beautifully.',
 	//youtube: 'https://youtube.com/shorts/fT_MR2laCI8',
-	video: getImagePublicPath('video/video1.mp4'),
+	video: getVideoPublicPath('video1.mp4'),
 	skills: [],
 	relatedSongs: [],
 } as Song;
@@ -23,7 +24,7 @@ export const Scene2: Song = {
 	imageUrl: getImagePublicPath('bigger-hits/scene2.png'),
 	length: '3:45',
 	explanation: 'This scene captures a special moment beautifully.',
-	video: getImagePublicPath('video/video2.mp4'),
+	video: getVideoPublicPath('video2.mp4'),
 	skills: [],
 	relatedSongs: [],
 } as Song;

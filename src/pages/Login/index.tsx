@@ -41,7 +41,7 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 				{/* Logo */}
 				<div className="login-logo">
 					<img
-						src="getImagePublicPathinvitation-logo.svg"
+						src={getImagePublicPath('invitation-logo.svg')}
 						alt="Invitation Logo"
 						className="login-logo-svg"
 						style={{ filter: 'brightness(0) invert(1)' }}

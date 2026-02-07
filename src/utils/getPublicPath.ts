@@ -30,3 +30,5 @@ export const getPublicationPath = (publication: string) =>
 	getPath(`images/publications/${publication}`);
 
 export const getImagePublicPath = (image: string) => getPath(`images/${image}`);
+
+export const getVideoPublicPath = (video: string) => getPath(`videos/${video}`);
