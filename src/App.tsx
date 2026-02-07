@@ -227,7 +227,7 @@ const RootComponent = () => {
 	];
 
 	return (
-		<Router basename="/">
+		<Router basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
 			<QueryParamMonitor />
 			{/* Show only Login page when not logged in */}
 			{showLogin ? (
