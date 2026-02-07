@@ -81,10 +81,7 @@ function getPreloadImageUrls(): string[] {
 
 /** All video URLs used across the app */
 function getPreloadVideoUrls(): string[] {
-	return [
-		getVideoPublicPath('video1.mp4'),
-		getVideoPublicPath('video2.mp4'),
-	];
+	return [getVideoPublicPath('video1.mp4'), getVideoPublicPath('video2.mp4')];
 }
 
 function preloadImage(url: string): Promise<void> {
@@ -113,8 +110,8 @@ function preloadVideo(url: string): Promise<void> {
  */
 export function preloadAllAssets(): Promise<void> {
 	const imageUrls = getPreloadImageUrls();
-	const videoUrls = getPreloadVideoUrls();
+	//const videoUrls = getPreloadVideoUrls();
 	const imagePromises = imageUrls.map(preloadImage);
-	const videoPromises = videoUrls.map(preloadVideo);
-	return Promise.all([...imagePromises, ...videoPromises]).then(() => {});
+	//const videoPromises = videoUrls.map(preloadVideo);
+	return Promise.all([...imagePromises]).then(() => {});
 }
