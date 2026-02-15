@@ -140,7 +140,7 @@ export const PlaylistHeader: FC<PlaylistHeaderProps> = ({
 											className="playlist-avatar"
 											id="user-avatar"
 											alt="User Avatar"
-											src={getImagePublicPath('profile.jpg')}
+											src={getImagePublicPath('profile.png')}
 										/>
 									</Link>
 									<h3 className="playlist-owner text-sm font-semibold text-white">

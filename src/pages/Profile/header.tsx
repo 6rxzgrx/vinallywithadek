@@ -15,7 +15,7 @@ export const ProfileHeader = () => {
 					<Col xs={24} sm={6} lg={5}>
 						<img
 							alt="franco profile pic"
-							src={getImagePublicPath('profile.jpg')}
+							src={getImagePublicPath('profile.png')}
 							className="profile-img"
 						/>
 					</Col>

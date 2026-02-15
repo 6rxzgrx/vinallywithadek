@@ -1,5 +1,5 @@
 export const profile = {
-	Verified: 'Pengembang terverifikasi',
+	Verified: 'Pasangan terverifikasi',
 	'Experience years': '7 tahun mengetahui satu sama lain',
 	'Minutes on spotify': '3.681.720 menit bersama (2026)',
 	'About us': 'Tentang kami',

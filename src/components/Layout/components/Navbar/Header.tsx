@@ -28,7 +28,7 @@ const Header = ({ opacity }: { opacity: number; title?: string }) => {
 								id="user-avatar"
 								alt="User Avatar"
 								style={{ marginTop: -1 }}
-								src={getImagePublicPath('profile.jpg')}
+								src={getImagePublicPath('profile.png')}
 							/>
 						</Link>
 					</div>

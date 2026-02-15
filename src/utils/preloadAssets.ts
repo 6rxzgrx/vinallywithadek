@@ -2,7 +2,6 @@ import {
 	getAlbumPath,
 	getAlbumPathWithoutLang,
 	getImagePublicPath,
-	getVideoPublicPath,
 } from './getPublicPath';
 import { AVAILABLE_SONGS } from '@/constants/songs';
 
@@ -23,45 +22,7 @@ function getPreloadImageUrls(): string[] {
 		img('invitation-logo.svg'),
 		img('info.svg'),
 		img('forward.svg'),
-		img('profile.jpg'),
-		// Bigger hits - scenes & shoots
-		img('bigger-hits/scene1.png'),
-		img('bigger-hits/scene2.png'),
-		img('bigger-hits/shoot1.png'),
-		img('bigger-hits/shoot2.png'),
-		img('bigger-hits/shoot3.png'),
-		img('bigger-hits/shoot1-1.jpg'),
-		img('bigger-hits/shoot1-2.jpg'),
-		img('bigger-hits/shoot2-1.jpg'),
-		img('bigger-hits/shoot2-2.jpg'),
-		img('bigger-hits/shoot2-3.jpg'),
-		img('bigger-hits/shoot3-2.jpg'),
-		img('bigger-hits/shoot3-3.jpg'),
-		// Our story
-		img('ourstory/story1.png'),
-		img('ourstory/story2.png'),
-		img('ourstory/story3.png'),
-		img('ourstory/story4.png'),
-		img('ourstory/story5.png'),
-		img('ourstory/story1-1.png'),
-		img('ourstory/story2-1.png'),
-		img('ourstory/story3-1.png'),
-		img('ourstory/story4-1.png'),
-		img('ourstory/story5-1.png'),
-		img('ourstory/story6-1.png'),
-		// The day & place
-		img('theday/reception.png'),
-		img('theday/wedding-ceremony.png'),
-		img('theplace/caraka.png'),
-		// Wedding gift
-		img('wedding-gift/bri.png'),
-		img('wedding-gift/bca.png'),
-		img('wedding-gift/mandiri.png'),
-		img('wedding-gift/dana.png'),
-		img('wedding-gift/jago.png'),
-		img('wedding-gift/shopee.png'),
-		img('wedding-gift/home.png'),
-		img('wedding-wish/giphy.gif'),
+		img('profile.png'),
 		// Song covers (playing bar, queue, etc.)
 		...AVAILABLE_SONGS.map((s) => img(`songs/${s.image}`)),
 		// Album covers (without lang)
@@ -79,28 +40,12 @@ function getPreloadImageUrls(): string[] {
 	];
 }
 
-/** All video URLs used across the app */
-function getPreloadVideoUrls(): string[] {
-	return [getVideoPublicPath('video1.mp4'), getVideoPublicPath('video2.mp4')];
-}
-
 function preloadImage(url: string): Promise<void> {
 	return new Promise((resolve) => {
 		const img = new Image();
 		img.onload = () => resolve();
 		img.onerror = () => resolve(); // Don't block on failed assets
 		img.src = url;
-	});
-}
-
-function preloadVideo(url: string): Promise<void> {
-	return new Promise((resolve) => {
-		const video = document.createElement('video');
-		video.preload = 'auto';
-		video.onloadeddata = () => resolve();
-		video.onerror = () => resolve();
-		video.src = url;
-		video.load();
 	});
 }
 

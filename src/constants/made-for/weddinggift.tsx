@@ -7,7 +7,6 @@ import type { Playlist, Song } from '../../interfaces/types';
 export enum WeddingGiftTypesEnum {
 	GIFT_1 = 'GIFT_TYPE_TRANSFER_BANK',
 	GIFT_2 = 'GIFT_TYPE_TOPUP_EMONEY',
-	GIFT_3 = 'GIFT_TYPE_SEND_GIFT',
 }
 
 export const Gift1: Song = {
@@ -94,28 +93,12 @@ export const Gift6: Song = {
 	relatedSongs: [],
 } as Song;
 
-export const Gift7: Song = {
-	name: 'GIFT_7_NAME',
-	imageUrl: getImagePublicPath('wedding-gift/home.png'),
-	length: 'GIFT_7_ARTIST',
-	description: 'GIFT_DETAILS_7',
-	types: [WeddingGiftTypesEnum.GIFT_3],
-	maps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.5919901265156!2d112.35923747575775!3d-8.142951391887147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78979ed7db073d%3A0xcb222cd85a28cf8a!2sGedung%20Caraka%20Putra%20(GCP)!5e0!3m2!1sen!2sid!4v1768727602831!5m2!1sen!2sid',
-	explanation: 'GIFT_EXPLANATION_7',
-	skills: [],
-	relatedSongs: [],
-} as Song;
-
 export const WeddingGift = {
 	name: 'Wedding Gift',
 	description: 'WEDDING_GIFT_DESCRIPTION',
 	color: '#FFD700',
-	songs: [Gift1, Gift2, Gift3, Gift4, Gift5, Gift6, Gift7],
-	filters: [
-		WeddingGiftTypesEnum.GIFT_1,
-		WeddingGiftTypesEnum.GIFT_2,
-		WeddingGiftTypesEnum.GIFT_3,
-	],
+	songs: [Gift1, Gift2, Gift3, Gift4, Gift5, Gift6],
+	filters: [WeddingGiftTypesEnum.GIFT_1, WeddingGiftTypesEnum.GIFT_2],
 	getImage(lang) {
 		return getAlbumPath('WeddingGift-cover', lang, 'png');
 	},

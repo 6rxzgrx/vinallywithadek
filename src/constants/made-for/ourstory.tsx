@@ -65,7 +65,7 @@ export const Story5: Song = {
 // Example story - replace with actual stories
 export const Story6: Song = {
 	name: 'STORY_NAME_6',
-	imageUrl: getImagePublicPath('ourstory/story1.png'),
+	imageUrl: getImagePublicPath('ourstory/story6.png'),
 	length: 'STORY_LENGTH_6',
 	description: 'STORY_DETAILS_6',
 	explanation: 'STORY_EXPLANATION_6',
