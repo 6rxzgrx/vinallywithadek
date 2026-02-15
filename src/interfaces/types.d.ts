@@ -35,6 +35,8 @@ export type Song = {
 	eventPlace?: string;
 	maps?: string;
 	video?: string;
+	/** Video orientation: 'landscape' (16:9) or 'portrait' (9:16). Auto-detected from video dimensions if not set. */
+	videoOrientation?: 'landscape' | 'portrait';
 	paymentDetails?: {
 		accountNumber: string;
 		accountName: string;

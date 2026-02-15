@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 // Interfaces
 import type { FC } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Song } from '../../../../../interfaces/types';
 import ReactPlayer from 'react-player';
 import { Spin } from 'antd';
@@ -295,12 +295,28 @@ const SongPreview: FC<{ song: Song }> = ({ song }) => {
 	);
 };
 
+export type VideoOrientation = 'landscape' | 'portrait';
+
 const VideoPlayer: FC<{ song: Song }> = ({ song }) => {
 	const [t] = useTranslation(['playingBar']);
 	const dispatch = useAppDispatch();
 	const [loading, setLoading] = useState(true);
+	const [detectedOrientation, setDetectedOrientation] =
+		useState<VideoOrientation | null>(null);
 
 	const videoUrl = song.video;
+	const explicitOrientation = song.videoOrientation;
+
+	// Use explicit param, otherwise fall back to auto-detected
+	const orientation: VideoOrientation =
+		explicitOrientation ?? detectedOrientation ?? 'landscape';
+
+	const aspectRatio = orientation === 'portrait' ? '9 / 16' : '16 / 9';
+
+	// Reset detected orientation when song changes
+	useEffect(() => {
+		setDetectedOrientation(null);
+	}, [song?.name, videoUrl]);
 
 	if (!videoUrl) return null;
 
@@ -320,12 +336,23 @@ const VideoPlayer: FC<{ song: Song }> = ({ song }) => {
 		setLoading(false);
 	};
 
+	const onLoadedMetadata = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+		// Auto-detect orientation from video dimensions if not explicitly set
+		if (!explicitOrientation) {
+			const video = e.currentTarget;
+			if (video.videoWidth > 0) {
+				const isPortrait = video.videoHeight > video.videoWidth;
+				setDetectedOrientation(isPortrait ? 'portrait' : 'landscape');
+			}
+		}
+	};
+
 	return (
 		<NowPlayingCard title={t('Video')}>
 			<div
 				style={{
 					width: '100%',
-					aspectRatio: '16 / 9',
+					aspectRatio,
 					borderRadius: '8px',
 					overflow: 'hidden',
 					position: 'relative',
@@ -355,6 +382,7 @@ const VideoPlayer: FC<{ song: Song }> = ({ song }) => {
 					onPause={onPause}
 					onEnded={onEnded}
 					onReady={onReady}
+					onLoadedMetadata={onLoadedMetadata}
 					style={{
 						position: 'absolute',
 						top: 0,

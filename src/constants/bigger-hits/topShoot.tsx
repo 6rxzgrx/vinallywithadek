@@ -10,12 +10,18 @@ import type { Playlist, Song } from '../../interfaces/types';
 export const Shoot1: Song = {
 	name: 'Shoot 1',
 	imageUrl: getImagePublicPath('bigger-hits/shoot1.png'),
-	length: '5:30',
+	length: '8',
 	explanation:
 		'This is a special moment from our top shoot collection. The image captures the essence of the moment perfectly.',
 	images: [
 		getImagePublicPath('bigger-hits/shoot1-1.jpg'),
 		getImagePublicPath('bigger-hits/shoot1-2.jpg'),
+		getImagePublicPath('bigger-hits/shoot1-3.jpg'),
+		getImagePublicPath('bigger-hits/shoot1-4.jpg'),
+		getImagePublicPath('bigger-hits/shoot1-5.jpg'),
+		getImagePublicPath('bigger-hits/shoot1-6.jpg'),
+		getImagePublicPath('bigger-hits/shoot1-7.jpg'),
+		getImagePublicPath('bigger-hits/shoot1-8.jpg'),
 	],
 	skills: [],
 	relatedSongs: [],

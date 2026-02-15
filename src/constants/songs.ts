@@ -21,6 +21,20 @@ export const AVAILABLE_SONGS = [
 		image: '3-yahya.png',
 	},
 	{
+		file: '13-mora.mp3',
+		name: 'REINA',
+		artist: 'Mora, Saiko',
+		color: '#783',
+		image: '13-mora.png',
+	},
+	{
+		file: '14-jahmiel.mp3',
+		name: 'U Me Luv',
+		artist: 'Jahmiel',
+		color: '#0073ce',
+		image: '14-jahmiel.png',
+	},
+	{
 		file: '4-ardhito.mp3',
 		name: 'Waking Up Together With You',
 		artist: 'Ardhito Pramono',
@@ -33,13 +47,6 @@ export const AVAILABLE_SONGS = [
 		artist: 'Paul Partohap',
 		color: '#FF5722',
 		image: '6-paul.png',
-	},
-	{
-		file: '7-elle.mp3',
-		name: 'You',
-		artist: 'Elle Eliades, R.L. KING',
-		color: '#0073ce',
-		image: '7-elle.png',
 	},
 	{
 		file: '8-zack.mp3',
