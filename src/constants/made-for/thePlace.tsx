@@ -17,7 +17,7 @@ export const GedungCarakaPutra: Song = {
 export const ThePlace = {
 	name: 'The Place',
 	description: 'THE_PLACE_DESCRIPTION',
-	color: '#228B22',
+	color: '#003262',
 	songs: [GedungCarakaPutra],
 	getImage(lang) {
 		return getAlbumPath('ThePlace-cover', lang, 'png');

@@ -76,7 +76,7 @@ export const Story6: Song = {
 export const OurStory = {
 	name: 'A - V',
 	description: 'OUR_STORY_DESCRIPTION',
-	color: '#FF6B9D',
+	color: '#01796F',
 	songs: [Story1, Story2, Story3, Story4, Story5, Story6],
 	getImage() {
 		return getAlbumPathWithoutLang('OurStory-cover', 'png');

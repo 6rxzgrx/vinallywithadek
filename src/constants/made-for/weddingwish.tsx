@@ -5,7 +5,6 @@ import supabase from '../../utils/supabase';
 // Interfaces
 import type { Playlist, Song } from '../../interfaces/types';
 
-
 // Generate avatar URL using DiceBear API with saved seed
 // Documentation: https://www.dicebear.com/how-to-use/http-api/
 const generateAvatarUrl = (seed: string): string => {
@@ -47,15 +46,18 @@ const fetchWishesFromSupabase = async (): Promise<Song[]> => {
 		return [];
 	}
 
-	return data.map((wish) => ({
-		name: wish.name,
-		length: formatDate(wish.created_at),
-		explanation: formatDate(wish.created_at),
-		description: wish.wish,
-		imageUrl: generateAvatarUrl(wish.seed || ''), // Use saved seed from database
-		skills: [],
-		relatedSongs: [],
-	} as Song));
+	return data.map(
+		(wish) =>
+			({
+				name: wish.name,
+				length: formatDate(wish.created_at),
+				explanation: formatDate(wish.created_at),
+				description: wish.wish,
+				imageUrl: generateAvatarUrl(wish.seed || ''), // Use saved seed from database
+				skills: [],
+				relatedSongs: [],
+			}) as Song,
+	);
 };
 
 // Fetch wishes: use cache if available (no loading on page open). Set forceRefresh=true to refetch (e.g. after new wish).
@@ -92,7 +94,9 @@ const WISHES_CACHED_EVENT = 'wishesCached';
 
 const notifyWishesCached = (): void => {
 	if (cachedWishes !== null) {
-		window.dispatchEvent(new CustomEvent(WISHES_CACHED_EVENT, { detail: cachedWishes.length }));
+		window.dispatchEvent(
+			new CustomEvent(WISHES_CACHED_EVENT, { detail: cachedWishes.length }),
+		);
 	}
 };
 
@@ -119,21 +123,23 @@ export const Wish1: Song = {
 	name: 'WISH_SENDER_NAME_1',
 	imageUrl: generateAvatarUrl('Us'),
 	length: 'WISH_TIME_1',
-	description: 'WISH_TEXT_1',	
+	description: 'WISH_TEXT_1',
 	explanation: 'WISH_TIME_1',
 	skills: [],
 	relatedSongs: [],
 } as Song;
 
 // Create WeddingWish playlist with dynamic songs. Use forceRefresh=true after a new wish is submitted.
-export const createWeddingWishPlaylist = async (forceRefresh = false): Promise<Playlist> => {
+export const createWeddingWishPlaylist = async (
+	forceRefresh = false,
+): Promise<Playlist> => {
 	const wishes = await fetchWishes(forceRefresh);
 
 	return {
 		name: 'Wedding Wish',
 		description: 'WEDDING_WISH_DESCRIPTION',
-		color: '#FF69B4',
-		songs: wishes.length > 0 ? wishes : [Wish1], 
+		color: '#E48400',
+		songs: wishes.length > 0 ? wishes : [Wish1],
 		getImage(lang) {
 			return getAlbumPath('WeddingWish-cover', lang, 'png');
 		},
@@ -144,10 +150,9 @@ export const createWeddingWishPlaylist = async (forceRefresh = false): Promise<P
 export const WeddingWish: Playlist = {
 	name: 'Wedding Wish',
 	description: 'WEDDING_WISH_DESCRIPTION',
-	color: '#FF69B4',
+	color: '#E48400',
 	songs: [Wish1],
 	getImage(lang) {
 		return getAlbumPath('WeddingWish-cover', lang, 'png');
 	},
 } as Playlist;
-

@@ -96,7 +96,7 @@ export const Gift6: Song = {
 export const WeddingGift = {
 	name: 'Wedding Gift',
 	description: 'WEDDING_GIFT_DESCRIPTION',
-	color: '#FFD700',
+	color: '#6C3082',
 	songs: [Gift1, Gift2, Gift3, Gift4, Gift5, Gift6],
 	filters: [WeddingGiftTypesEnum.GIFT_1, WeddingGiftTypesEnum.GIFT_2],
 	getImage(lang) {

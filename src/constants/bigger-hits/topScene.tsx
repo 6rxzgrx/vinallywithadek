@@ -42,7 +42,7 @@ export const Scene3: Song = {
 export const TopScene = {
 	name: 'uncutted memories',
 	description: 'Uncutted memories from our collection',
-	color: '#4A90E2',
+	color: '#3AA8C1',
 	songs: [Scene1, Scene2, Scene3],
 	getImage() {
 		return getAlbumPathWithoutLang('TopScene-cover', 'png');

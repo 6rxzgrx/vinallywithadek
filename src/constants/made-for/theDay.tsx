@@ -39,7 +39,7 @@ export const WeddingCeremony: Song = {
 export const TheDay = {
 	name: 'The Day',
 	description: 'THE_DAY_DESCRIPTION',
-	color: '#8B4513',
+	color: '#AB274F',
 	songs: [WeddingCeremony, Reception],
 	filters: [TheDayTypesEnum.WEDDING_CEREMONY, TheDayTypesEnum.RECEPTION],
 	getImage(lang) {

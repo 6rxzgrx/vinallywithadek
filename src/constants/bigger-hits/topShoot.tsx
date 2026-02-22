@@ -37,6 +37,9 @@ export const Shoot2: Song = {
 		getImagePublicPath('bigger-hits/shoot2-1.jpg'),
 		getImagePublicPath('bigger-hits/shoot2-2.jpg'),
 		getImagePublicPath('bigger-hits/shoot2-3.jpg'),
+		getImagePublicPath('bigger-hits/shoot2-4.jpg'),
+		getImagePublicPath('bigger-hits/shoot2-5.jpg'),
+		getImagePublicPath('bigger-hits/shoot2-6.jpg'),
 	],
 	skills: [],
 	relatedSongs: [],
@@ -49,8 +52,12 @@ export const Shoot3: Song = {
 	explanation:
 		'These images showcase some of the most memorable moments. Each photo has been carefully selected to represent the best of our collection.',
 	images: [
+		getImagePublicPath('bigger-hits/shoot3-1.jpg'),
 		getImagePublicPath('bigger-hits/shoot3-2.jpg'),
 		getImagePublicPath('bigger-hits/shoot3-3.jpg'),
+		getImagePublicPath('bigger-hits/shoot3-4.jpg'),
+		getImagePublicPath('bigger-hits/shoot3-5.jpg'),
+		getImagePublicPath('bigger-hits/shoot3-6.jpg'),
 	],
 	skills: [],
 	relatedSongs: [],
@@ -59,7 +66,7 @@ export const Shoot3: Song = {
 export const TopShoot = {
 	name: 'frame-by-frame',
 	description: 'The best shoot collection',
-	color: '#FF6B9D',
+	color: '#00BFFF',
 	songs: [Shoot1, Shoot2, Shoot3],
 	getImage() {
 		return getAlbumPathWithoutLang('TopShoot-cover', 'png');
