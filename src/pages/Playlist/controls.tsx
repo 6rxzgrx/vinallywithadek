@@ -10,7 +10,7 @@ import {
 	message,
 } from 'antd';
 import { useState, useEffect } from 'react';
-import { ReloadOutlined } from '@ant-design/icons';
+import { PlusOutlined, ReloadOutlined } from '@ant-design/icons';
 
 import { Tooltip } from '../../components/Tooltip';
 import { MenuDots, OrderListIcon } from '../../components/Icons';
@@ -69,16 +69,6 @@ export const PlaylistControls: FC<{ playlist: Playlist }> = ({ playlist }) => {
 		label: tor(filter),
 		onClick: () => dispatch(playlistActions.setOrder({ order: filter })),
 	}));
-
-	const menuItems = isWeddingWishPlaylist
-		? [
-				{
-					key: 'add-wish',
-					label: t('Add Wish'),
-					onClick: () => setIsModalOpen(true),
-				},
-			]
-		: [];
 
 	const handleSubmit = async (values: { name: string; wish: string }) => {
 		setLoading(true);
@@ -189,24 +179,27 @@ export const PlaylistControls: FC<{ playlist: Playlist }> = ({ playlist }) => {
 					<Space>
 						<PlayCircleButton />
 						{isWeddingWishPlaylist ? (
-							<Dropdown
-								placement="bottomLeft"
-								menu={{ items: menuItems }}
-								trigger={['click']}
-							>
+							<Tooltip title={t('Add Wish')}>
 								<button
-									style={{
-										background: 'none',
-										border: 'none',
-										cursor: 'pointer',
-										padding: 0,
-									}}
+									className="add-wish-button"
+									onClick={() => setIsModalOpen(true)}
+									aria-label={t('Add Wish')}
 								>
-									<MenuDots />
+									<PlusOutlined />
 								</button>
-							</Dropdown>
+							</Tooltip>
 						) : (
-							<MenuDots />
+							<button
+								style={{
+									background: 'none',
+									border: 'none',
+									cursor: 'pointer',
+									padding: 0,
+								}}
+								aria-hidden
+							>
+								<MenuDots />
+							</button>
 						)}
 					</Space>
 				</Col>

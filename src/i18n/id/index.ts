@@ -8,6 +8,7 @@ import { profile } from './profile';
 import { playlist } from './playlist';
 import { navigation } from './navigation';
 import { playingBar } from './playingBar';
+import { login } from './login';
 
-export { cv, home, order, errors, search, navbar, playlist, playingBar, profile, navigation };
+export { cv, home, order, errors, search, navbar, playlist, playingBar, profile, navigation, login };
 

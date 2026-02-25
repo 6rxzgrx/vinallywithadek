@@ -4,6 +4,10 @@ import { THE_DAY } from './theDay';
 import { OUR_STORY } from './ourStory';
 import { WEDDING_GIFT } from './weddingGift';
 import { WEDDING_WISH } from './weddingWish';
+import { TOP_SCENE } from './topScene';
+import { TOP_SHOOT } from './topShoot';
+import { PAGES } from './pages';
+import { COUNTDOWN } from './countdown';
 
 export const cv = {
 	// Titles
@@ -24,4 +28,8 @@ export const cv = {
 	...OUR_STORY,
 	...WEDDING_GIFT,
 	...WEDDING_WISH,
+	...TOP_SCENE,
+	...TOP_SHOOT,
+	...PAGES,
+	...COUNTDOWN,
 } as const;

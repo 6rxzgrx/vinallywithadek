@@ -42,7 +42,7 @@ export const LanguageModal = memo(() => {
 				footer={null}
 				destroyOnHidden
 				getContainer={() => document.body}
-				zIndex={width <= 768 ? 10000 : undefined}
+				zIndex={10001}
 				onCancel={() => onClose()}
 				title={
 					<h1

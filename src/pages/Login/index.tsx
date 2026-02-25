@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
-import { useAppSelector } from '../../store/store';
+import { Trans, useTranslation } from 'react-i18next';
+import { useAppDispatch, useAppSelector } from '../../store/store';
+import { languageActions } from '../../store/slices/language';
 import './styles.scss';
 import { getImagePublicPath } from '@/utils/getPublicPath';
 
@@ -8,9 +10,11 @@ interface LoginProps {
 }
 
 export const Login: FC<LoginProps> = ({ onLogin }) => {
+	const { t } = useTranslation(['login']);
+	const dispatch = useAppDispatch();
 	const [password, setPassword] = useState('');
 	const guestName = useAppSelector((state) => state.guest.name);
-	const username = guestName || 'Bapak/Ibu/Saudara/i';
+	const username = guestName || t('Bapak/Ibu/Saudara/i');
 	const [error, setError] = useState('');
 	const [showPassword, setShowPassword] = useState(false);
 	const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
@@ -23,7 +27,7 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 			// Hide login overlay after successful login
 			onLogin();
 		} else {
-			setError('Incorrect password. Please try again.');
+			setError(t('Incorrect password. Please try again.'));
 		}
 	};
 
@@ -42,34 +46,42 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 				<div className="login-logo">
 					<img
 						src={getImagePublicPath('invitation-logo.svg')}
-						alt="Invitation Logo"
+						alt={t('Invitation Logo')}
 						className="login-logo-svg"
 						style={{ filter: 'brightness(0) invert(1)' }}
 					/>
 				</div>
 
 				{/* Welcome back text */}
-				<h1 className="login-title">Welcome back, {username}</h1>
+				<h1 className="login-title">
+					{t('Welcome back')}, {username}
+				</h1>
 
 				{/* Information message */}
 				<div className="login-info">
 					<div className="login-info-icon">
 						<img
 							src={getImagePublicPath('info.svg')}
-							alt="Info"
+							alt={t('Info')}
 							className="login-info-svg"
 						/>
 					</div>
 					<p className="login-info-text">
-						Youre invited to the wedding of <b>Adek & Vivi</b> on 14th of
-						February 2026 in <b>Kesamben,Blitar, Indonesia</b>. You can access
-						our invitation here with the correct password.
+						<Trans
+							i18nKey="login:invitationInfo"
+							values={{
+								brideGroom: t('brideGroom'),
+								date: t('date'),
+								location: t('location'),
+							}}
+							components={[<b key="bride" />, <b key="location" />]}
+						/>
 					</p>
 				</div>
 
 				{/* Password input */}
 				<div className="login-input-wrapper">
-					<label className="login-input-label">Password</label>
+					<label className="login-input-label">{t('Password')}</label>
 					<div className="login-input-container">
 						<input
 							type={showPassword ? 'text' : 'password'}
@@ -94,7 +106,9 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 								setShowPassword(!showPassword);
 								setTimeout(() => setIsAnimating(false), 300);
 							}}
-							aria-label={showPassword ? 'Hide password' : 'Show password'}
+							aria-label={
+								showPassword ? t('Hide password') : t('Show password')
+							}
 						>
 							{showPassword ? (
 								// Open eye icon (when password is visible)
@@ -141,7 +155,7 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 
 				{/* Login button */}
 				<button className="login-button" onClick={handleLogin}>
-					Login
+					{t('Login')}
 				</button>
 
 				{/* Forgot password link */}
@@ -149,9 +163,31 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 					className="login-forgot-password"
 					onClick={handleForgotPassword}
 				>
-					Forgot your Password?
+					{t('Forgot your Password?')}
 				</button>
 			</div>
+
+			{/* Language selector - bottom sticky */}
+			<button
+				className="login-language-button"
+				onClick={() => dispatch(languageActions.openLanguageModal())}
+				aria-label={t('Select language')}
+			>
+				<svg
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+					aria-hidden="true"
+				>
+					<path
+						d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+						fill="currentColor"
+					/>
+				</svg>
+				<span>{t('Select language')}</span>
+			</button>
 
 			{/* Forgot Password Modal */}
 			{showForgotPasswordModal && (
@@ -160,7 +196,7 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 						<button
 							className="login-modal-close"
 							onClick={handleCloseModal}
-							aria-label="Close modal"
+							aria-label={t('Close modal')}
 						>
 							<svg
 								width="24"
@@ -178,9 +214,9 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 								/>
 							</svg>
 						</button>
-						<h2 className="login-modal-title">Forgot Password?</h2>
+						<h2 className="login-modal-title">{t('Forgot Password?')}</h2>
 						<div className="login-modal-content">
-							<p className="login-modal-text">Your password is:</p>
+							<p className="login-modal-text">{t('Your password is:')}</p>
 							<div className="login-modal-password">1234</div>
 						</div>
 					</div>

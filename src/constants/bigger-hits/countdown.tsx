@@ -6,7 +6,7 @@ import type { Playlist } from '../../interfaces/types';
 
 export const Countdown = {
 	name: 'almost there',
-	description: 'Countdown to our special day',
+	description: 'COUNTDOWN_DESCRIPTION',
 	color: '#1ed760', // Dark green-brown color matching the image
 	songs: [], // No songs needed for countdown
 	getImage() {

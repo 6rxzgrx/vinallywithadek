@@ -5,12 +5,7 @@ export const groomPage: PageData = {
 	id: 'groom',
 	title: 'Groom',
 	image: getImagePublicPath('pages/groom.png'),
-	subtitle: 'Adek',
+	subtitle: 'GROOM_SUBTITLE',
 	color: '#3d5255',
-	content: [
-		'<p>Meet the groom - a wonderful person who brings joy and love to everyone around him.</p>',
-		`<img src="${getImagePublicPath('pages/groom-detail.png')}" alt="Groom" />`,
-		'👨‍💼 <b>Adek Muhammad Zulkham Ristiawan Kertanegara, S.Tr.Kom.</b>',
-		'Putra ke 1 dari Bapak Rismanto dan Ibu Eny Zulaiha',
-	],
+	content: ['GROOM_DESCRIPTION'],
 };

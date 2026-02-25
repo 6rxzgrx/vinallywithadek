@@ -8,6 +8,7 @@ import { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { ConfigProvider } from 'antd';
 import { AppLoader } from './components/AppLoader';
 import { AppLayout } from './components/Layout';
+import { LanguageModal } from './components/LanguageModal';
 import { preloadAllAssets } from './utils/preloadAssets';
 import {
 	Route,
@@ -246,9 +247,12 @@ const RootComponent = () => {
 			<QueryParamMonitor />
 			{/* Show only Login page when not logged in */}
 			{showLogin ? (
-				<Suspense>
-					<Login onLogin={handleLogin} />
-				</Suspense>
+				<>
+					<Suspense>
+						<Login onLogin={handleLogin} />
+					</Suspense>
+					<LanguageModal />
+				</>
 			) : (
 				/* Show main app after login */
 				<AppLayout>

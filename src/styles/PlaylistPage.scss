@@ -337,6 +337,23 @@
 	}
 }
 
+.add-wish-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #bababa;
+	font-size: 1.25rem;
+	transition: color 0.2s ease;
+
+	&:hover {
+		color: white;
+	}
+}
+
 // Add Wish Modal Styles (matching login modal style)
 .add-wish-modal {
 	.ant-modal-content {

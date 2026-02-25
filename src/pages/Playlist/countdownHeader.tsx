@@ -16,7 +16,7 @@ const NotificationIcon = () => (
 		fill="currentColor"
 		style={{ display: 'block', color: '#121212' }}
 	>
-		<path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+		<path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
 	</svg>
 );
 
@@ -25,12 +25,12 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 	targetDate,
 }) => {
 	const { t } = useTranslation(['playlist']);
-	
+
 	// Target date: April 14, 2026 at 7:30 AM
 	// Memoize to prevent creating new Date object on every render
 	const defaultTargetDate = useMemo(
 		() => targetDate || new Date('2026-04-14T07:30:00'),
-		[targetDate]
+		[targetDate],
 	);
 	const [timeLeft, setTimeLeft] = useState({
 		days: 0,
@@ -48,7 +48,9 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 			if (difference > 0) {
 				setTimeLeft({
 					days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-					hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+					hours: Math.floor(
+						(difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+					),
 					minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
 					seconds: Math.floor((difference % (1000 * 60)) / 1000),
 				});
@@ -71,7 +73,7 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 	const getGoogleCalendarUrl = () => {
 		const eventTitle = encodeURIComponent(t('Wedding Event Title'));
 		const eventDate = defaultTargetDate;
-		
+
 		// Format date for Google Calendar (YYYYMMDDTHHMMSS)
 		const formatDateForGoogle = (date: Date) => {
 			const year = date.getFullYear();
@@ -91,9 +93,9 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 
 		const startDateStr = formatDateForGoogle(startDate);
 		const endDateStr = formatDateForGoogle(endDate);
-		
+
 		const description = encodeURIComponent(t('Wedding Event Description'));
-		const location = encodeURIComponent('Gedung Caraka Putra (GCP)'); 
+		const location = encodeURIComponent(t('Wedding Event Location'));
 
 		return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${startDateStr}/${endDateStr}&details=${description}&location=${location}`;
 	};
@@ -149,7 +151,15 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 				}}
 			>
 				{/* Days */}
-				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						gap: '8px',
+						flexShrink: 0,
+					}}
+				>
 					<div
 						style={{
 							display: 'flex',
@@ -162,40 +172,56 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 							border: '2px solid rgba(255, 255, 255, 0.3)',
 						}}
 					>
-						<p style={{ 
-							color: 'white', 
-							fontSize: 'clamp(20px, 4vw, 30px)', 
-							fontWeight: 'bold', 
-							letterSpacing: '-0.05em',
-							margin: 0,
-							lineHeight: '1',
-						}}>
+						<p
+							style={{
+								color: 'white',
+								fontSize: 'clamp(20px, 4vw, 30px)',
+								fontWeight: 'bold',
+								letterSpacing: '-0.05em',
+								margin: 0,
+								lineHeight: '1',
+							}}
+						>
 							{formatNumber(timeLeft.days)}
 						</p>
 					</div>
-					<p style={{ 
-						color: 'rgba(255, 255, 255, 0.7)', 
-						fontSize: 'clamp(10px, 2vw, 12px)', 
-						fontWeight: 'bold', 
-						textTransform: 'uppercase',
-						letterSpacing: '0.1em',
-						margin: 0,
-					}}>
+					<p
+						style={{
+							color: 'rgba(255, 255, 255, 0.7)',
+							fontSize: 'clamp(10px, 2vw, 12px)',
+							fontWeight: 'bold',
+							textTransform: 'uppercase',
+							letterSpacing: '0.1em',
+							margin: 0,
+						}}
+					>
 						{t('Days')}
 					</p>
 				</div>
 
-				<span style={{ 
-					color: 'white', 
-					fontSize: 'clamp(24px, 5vw, 36px)', 
-					fontWeight: 'bold',
-					paddingTop: '16px',
-					flexShrink: 0,
-					opacity: 0.7,
-				}}>:</span>
+				<span
+					style={{
+						color: 'white',
+						fontSize: 'clamp(24px, 5vw, 36px)',
+						fontWeight: 'bold',
+						paddingTop: '16px',
+						flexShrink: 0,
+						opacity: 0.7,
+					}}
+				>
+					:
+				</span>
 
 				{/* Hours */}
-				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						gap: '8px',
+						flexShrink: 0,
+					}}
+				>
 					<div
 						style={{
 							display: 'flex',
@@ -208,40 +234,56 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 							border: '2px solid rgba(255, 255, 255, 0.3)',
 						}}
 					>
-						<p style={{ 
-							color: 'white', 
-							fontSize: 'clamp(20px, 4vw, 30px)', 
-							fontWeight: 'bold', 
-							letterSpacing: '-0.05em',
-							margin: 0,
-							lineHeight: '1',
-						}}>
+						<p
+							style={{
+								color: 'white',
+								fontSize: 'clamp(20px, 4vw, 30px)',
+								fontWeight: 'bold',
+								letterSpacing: '-0.05em',
+								margin: 0,
+								lineHeight: '1',
+							}}
+						>
 							{formatNumber(timeLeft.hours)}
 						</p>
 					</div>
-					<p style={{ 
-						color: 'rgba(255, 255, 255, 0.7)', 
-						fontSize: 'clamp(10px, 2vw, 12px)', 
-						fontWeight: 'bold', 
-						textTransform: 'uppercase',
-						letterSpacing: '0.1em',
-						margin: 0,
-					}}>
+					<p
+						style={{
+							color: 'rgba(255, 255, 255, 0.7)',
+							fontSize: 'clamp(10px, 2vw, 12px)',
+							fontWeight: 'bold',
+							textTransform: 'uppercase',
+							letterSpacing: '0.1em',
+							margin: 0,
+						}}
+					>
 						{t('Hours')}
 					</p>
 				</div>
 
-				<span style={{ 
-					color: 'white', 
-					fontSize: 'clamp(24px, 5vw, 36px)', 
-					fontWeight: 'bold',
-					paddingTop: '16px',
-					flexShrink: 0,
-					opacity: 0.7,
-				}}>:</span>
+				<span
+					style={{
+						color: 'white',
+						fontSize: 'clamp(24px, 5vw, 36px)',
+						fontWeight: 'bold',
+						paddingTop: '16px',
+						flexShrink: 0,
+						opacity: 0.7,
+					}}
+				>
+					:
+				</span>
 
 				{/* Minutes */}
-				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						gap: '8px',
+						flexShrink: 0,
+					}}
+				>
 					<div
 						style={{
 							display: 'flex',
@@ -254,40 +296,56 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 							border: '2px solid rgba(255, 255, 255, 0.3)',
 						}}
 					>
-						<p style={{ 
-							color: 'white', 
-							fontSize: 'clamp(20px, 4vw, 30px)', 
-							fontWeight: 'bold', 
-							letterSpacing: '-0.05em',
-							margin: 0,
-							lineHeight: '1',
-						}}>
+						<p
+							style={{
+								color: 'white',
+								fontSize: 'clamp(20px, 4vw, 30px)',
+								fontWeight: 'bold',
+								letterSpacing: '-0.05em',
+								margin: 0,
+								lineHeight: '1',
+							}}
+						>
 							{formatNumber(timeLeft.minutes)}
 						</p>
 					</div>
-					<p style={{ 
-						color: 'rgba(255, 255, 255, 0.7)', 
-						fontSize: 'clamp(10px, 2vw, 12px)', 
-						fontWeight: 'bold', 
-						textTransform: 'uppercase',
-						letterSpacing: '0.1em',
-						margin: 0,
-					}}>
+					<p
+						style={{
+							color: 'rgba(255, 255, 255, 0.7)',
+							fontSize: 'clamp(10px, 2vw, 12px)',
+							fontWeight: 'bold',
+							textTransform: 'uppercase',
+							letterSpacing: '0.1em',
+							margin: 0,
+						}}
+					>
 						{t('Mins')}
 					</p>
 				</div>
 
-				<span style={{ 
-					color: 'white', 
-					fontSize: 'clamp(24px, 5vw, 36px)', 
-					fontWeight: 'bold',
-					paddingTop: '16px',
-					flexShrink: 0,
-					opacity: 0.7,
-				}}>:</span>
+				<span
+					style={{
+						color: 'white',
+						fontSize: 'clamp(24px, 5vw, 36px)',
+						fontWeight: 'bold',
+						paddingTop: '16px',
+						flexShrink: 0,
+						opacity: 0.7,
+					}}
+				>
+					:
+				</span>
 
 				{/* Seconds */}
-				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						gap: '8px',
+						flexShrink: 0,
+					}}
+				>
 					<div
 						style={{
 							display: 'flex',
@@ -300,25 +358,29 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 							border: '2px solid rgba(255, 255, 255, 0.3)',
 						}}
 					>
-						<p style={{ 
-							color: 'white', 
-							fontSize: 'clamp(20px, 4vw, 30px)', 
-							fontWeight: 'bold', 
-							letterSpacing: '-0.05em',
-							margin: 0,
-							lineHeight: '1',
-						}}>
+						<p
+							style={{
+								color: 'white',
+								fontSize: 'clamp(20px, 4vw, 30px)',
+								fontWeight: 'bold',
+								letterSpacing: '-0.05em',
+								margin: 0,
+								lineHeight: '1',
+							}}
+						>
 							{formatNumber(timeLeft.seconds)}
 						</p>
 					</div>
-					<p style={{ 
-						color: 'rgba(255, 255, 255, 0.7)', 
-						fontSize: '12px', 
-						fontWeight: 'bold', 
-						textTransform: 'uppercase',
-						letterSpacing: '0.1em',
-						margin: 0,
-					}}>
+					<p
+						style={{
+							color: 'rgba(255, 255, 255, 0.7)',
+							fontSize: '12px',
+							fontWeight: 'bold',
+							textTransform: 'uppercase',
+							letterSpacing: '0.1em',
+							margin: 0,
+						}}
+					>
 						{t('Secs')}
 					</p>
 				</div>
@@ -350,7 +412,8 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 						fontSize: '18px',
 						fontWeight: 'bold',
 						border: 'none',
-						transition: 'transform 0.2s ease-in-out, background-color 0.2s ease-in-out',
+						transition:
+							'transform 0.2s ease-in-out, background-color 0.2s ease-in-out',
 						whiteSpace: 'nowrap',
 					}}
 					onMouseEnter={(e) => {
@@ -367,7 +430,9 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 					}}
 				>
 					<NotificationIcon />
-					<span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('Notify Me')}</span>
+					<span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+						{t('Notify Me')}
+					</span>
 				</button>
 				<p
 					style={{
@@ -379,10 +444,9 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 						padding: '0 clamp(10px, 3vw, 20px)',
 					}}
 				>
-					{t('Join 15,402 others who pre-saved this')}
+					{t('Footer end countdown')}
 				</p>
 			</div>
 		</div>
 	);
 };
-

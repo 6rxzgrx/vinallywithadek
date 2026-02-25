@@ -11,8 +11,7 @@ export const Shoot1: Song = {
 	name: 'Shoot 1',
 	imageUrl: getImagePublicPath('bigger-hits/shoot1.png'),
 	length: '8',
-	explanation:
-		'This is a special moment from our top shoot collection. The image captures the essence of the moment perfectly.',
+	explanation: 'SHOOT_1_EXPLANATION',
 	images: [
 		getImagePublicPath('bigger-hits/shoot1-1.jpg'),
 		getImagePublicPath('bigger-hits/shoot1-2.jpg'),
@@ -31,8 +30,7 @@ export const Shoot2: Song = {
 	name: 'Shoot 2',
 	imageUrl: getImagePublicPath('bigger-hits/shoot2.png'),
 	length: '4:15',
-	explanation:
-		'This shoot represents one of the highlights from our top collection. Each image tells a unique story.',
+	explanation: 'SHOOT_2_EXPLANATION',
 	images: [
 		getImagePublicPath('bigger-hits/shoot2-1.jpg'),
 		getImagePublicPath('bigger-hits/shoot2-2.jpg'),
@@ -49,8 +47,7 @@ export const Shoot3: Song = {
 	name: 'Shoot 3',
 	imageUrl: getImagePublicPath('bigger-hits/shoot3.png'),
 	length: '6:20',
-	explanation:
-		'These images showcase some of the most memorable moments. Each photo has been carefully selected to represent the best of our collection.',
+	explanation: 'SHOOT_3_EXPLANATION',
 	images: [
 		getImagePublicPath('bigger-hits/shoot3-1.jpg'),
 		getImagePublicPath('bigger-hits/shoot3-2.jpg'),
@@ -65,7 +62,7 @@ export const Shoot3: Song = {
 
 export const TopShoot = {
 	name: 'frame-by-frame',
-	description: 'The best shoot collection',
+	description: 'TOP_SHOOT_DESCRIPTION',
 	color: '#00BFFF',
 	songs: [Shoot1, Shoot2, Shoot3],
 	getImage() {
