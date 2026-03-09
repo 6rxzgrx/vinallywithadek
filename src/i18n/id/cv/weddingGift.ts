@@ -6,7 +6,6 @@ export const WEDDING_GIFT = {
 	// Filter / type labels
 	GIFT_TYPE_TRANSFER_BANK: 'Transfer Bank',
 	GIFT_TYPE_TOPUP_EMONEY: 'Topup E-Money',
-	GIFT_TYPE_SEND_GIFT: 'Kirim Hadiah',
 
 	// Gift names
 	GIFT_1_NAME: 'Bank Rakyat Indonesia (BRI)',
@@ -15,7 +14,6 @@ export const WEDDING_GIFT = {
 	GIFT_4_NAME: 'DANA',
 	GIFT_5_NAME: 'JAGO',
 	GIFT_6_NAME: 'SHOPEE PAY',
-	GIFT_7_NAME: 'Kirim Hadiah',
 
 	// Artist / account holder label
 	GIFT_1_ARTIST: 'Vivi',
@@ -24,7 +22,6 @@ export const WEDDING_GIFT = {
 	GIFT_4_ARTIST: 'Vivi',
 	GIFT_5_ARTIST: 'Vivi',
 	GIFT_6_ARTIST: 'Adek',
-	GIFT_7_ARTIST: 'Tempat Kami',
 
 	// Explanations
 	GIFT_EXPLANATION_1:
@@ -39,11 +36,4 @@ export const WEDDING_GIFT = {
 		'Anda dapat top up kado ke akun JAGO ini. Terima kasih atas kebaikan Anda.',
 	GIFT_EXPLANATION_6:
 		'Anda dapat top up kado ke akun ShopeePay ini. Terima kasih atas kebaikan Anda.',
-	GIFT_EXPLANATION_7:
-		'Anda dapat mengirim atau membawa kado langsung ke tempat resepsi. Kami akan senang menerimanya.',
-
-	// Details
-	GIFT_DETAILS_7:
-		'🏢 <b>Tempat:</b> Gedung Caraka Putra (GCP).\n' +
-		'📍 <b>Alamat:</b> Jl. Ahmad Yani No.5a, Tuworejo, Kesamben, Kec. Kesamben, Kabupaten Blitar, Jawa Timur 66191\n',
 } as const;

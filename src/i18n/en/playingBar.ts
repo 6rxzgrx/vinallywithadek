@@ -14,7 +14,7 @@ export const playingBar = {
 	Images: 'Images',
 	'Click to view more': 'Click to view more',
 	Video: 'Video',
-	'Related projects': 'Related projects',
+	'Related projects': 'Related playlists',
 	'Exit full screen': 'Exit full screen',
 	'Payment Details': 'Payment Details',
 	Home: 'Home',

@@ -1,5 +1,4 @@
 export const home = {
-  'Made for': 'Dibuat untuk',
-  'Biggest Hits': 'Lagu Terpopuler',
+	'Made for': 'Dibuat untuk',
+	'Biggest Hits': 'Hits Terpopuler',
 };
-

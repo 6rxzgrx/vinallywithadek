@@ -2,7 +2,7 @@ import { getImagePublicPath } from '@/utils/getPublicPath';
 
 export const OUR_STORY = {
 	'A - V': 'A - V',
-	OUR_STORY_DESCRIPTION: 'Perjalanan kami bersama, dari awal hingga selamanya',
+	OUR_STORY_DESCRIPTION: 'Perjalanan kami, dari awal hingga selamanya',
 
 	STORY_NAME_1: 'Di Titik yang Telah Ditentukan',
 	STORY_LENGTH_1: '2019',

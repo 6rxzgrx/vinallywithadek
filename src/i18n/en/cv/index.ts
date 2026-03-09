@@ -9,14 +9,6 @@ import { PAGES } from './pages';
 import { COUNTDOWN } from './countdown';
 
 export const cv = {
-	// Titles
-	EXPERIENCE: 'Experience',
-	EDUCATION: 'Education',
-
-	WEB_SITE: 'Web Site',
-	Certificate: 'Certificate',
-	Instagram: 'Instagram',
-
 	// Page Songs
 	Welcome: 'Welcome',
 	Groom: 'The Groom',

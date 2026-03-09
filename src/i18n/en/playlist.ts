@@ -27,7 +27,7 @@ export const playlist = {
 	Secs: 'Secs',
 	'Notify Me': 'Notify Me',
 	'Footer end countdown': 'We are almost there. Glad to see you at the moment.',
-	'Wedding Event Title': 'Wedding of Adek & Vivi',
+	'Wedding Event Title': 'The Wedding of Adek & Vivi',
 	'Wedding Event Description': 'Join us for our wedding celebration',
 	'Wedding Event Location': 'Gedung Caraka Putra (GCP)',
 };

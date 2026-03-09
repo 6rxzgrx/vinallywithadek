@@ -22,7 +22,7 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 
 	const handleLogin = () => {
 		// Validate password
-		if (password === '1234') {
+		if (password === '140426') {
 			setError('');
 			// Hide login overlay after successful login
 			onLogin();
@@ -217,7 +217,7 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 						<h2 className="login-modal-title">{t('Forgot Password?')}</h2>
 						<div className="login-modal-content">
 							<p className="login-modal-text">{t('Your password is:')}</p>
-							<div className="login-modal-password">1234</div>
+							<div className="login-modal-password">140426</div>
 						</div>
 					</div>
 				</div>

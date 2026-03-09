@@ -329,8 +329,8 @@
 }
 
 .login-language-button {
-	position: fixed;
-	bottom: 24px;
+	position: absolute;
+	bottom: max(32px, env(safe-area-inset-bottom));
 	left: 50%;
 	transform: translateX(-50%);
 	display: flex;
@@ -360,7 +360,7 @@
 	}
 
 	@media (max-width: 768px) {
-		bottom: 16px;
+		bottom: max(32px, env(safe-area-inset-bottom));
 		padding: 8px 16px;
 		font-size: 13px;
 	}

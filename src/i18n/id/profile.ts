@@ -6,7 +6,7 @@ export const profile = {
 	Stats: 'Statistik Kami',
 	'Years together': 'Tahun Bersama',
 	'Years value': '7',
-	'Coffee time': 'Minum Kopi',
+	'Coffee time': 'Gelas Kopi',
 	'Late night talks': 'Obrolan Tengah Malam',
 	'Late night value': '∞',
 	'Arguments won': 'Pertengkaran Dimenangkan',

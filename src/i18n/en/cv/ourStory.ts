@@ -30,6 +30,6 @@ export const OUR_STORY = {
 
 	STORY_NAME_6: 'A Step Taken with Intention',
 	STORY_LENGTH_6: '2026',
-	STORY_DETAILS_6: `<img src="${getImagePublicPath('ourstory/story6-1.png')}" alt="Story 6" />Now, with gratitude and prayer, we choose to walk the path blessed by Him. Uniting two stories, two journeys, and two hearts into one sacred bond. Marriage is not the end of our story, but the beginning of a new one—to hold each other, in joy and in sorrow, until the end of time.`,
+	STORY_DETAILS_6: `<img src="${getImagePublicPath('ourstory/story6-1.png')}" alt="Story 6" />Now, with gratitude and prayer, we choose to walk the path blessed by God. Uniting two stories, two journeys, and two hearts into one sacred bond. Marriage is not the end of our story, but the beginning of a new one—to hold each other, in joy and in sorrow, until the end of time.`,
 	STORY_EXPLANATION_6: 'Forever.',
 } as const;

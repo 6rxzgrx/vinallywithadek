@@ -22,7 +22,7 @@ export const PAGES = {
 	// Bride page
 	BRIDE_SUBTITLE: 'Vivi',
 	BRIDE_DESCRIPTION:
-		'<p>Perkenalkan mempelai wanita - jiwa yang indah yang menerangi setiap ruangan yang dimasukinya.</p>\n' +
+		'<p>Perkenalkan mempelai wanita - jiwa indah yang menerangi setiap ruangan yang dimasukinya.</p>\n' +
 		`<img src="${getImagePublicPath('pages/bride-detail.jpg')}" alt="Mempelai Wanita" />\n` +
 		'👰‍♀️ <b>Alviana Juni Susanti, S.Tr.Kom.</b>\n' +
 		'Putri ke 4 dari Bapak Kamani (Alm) dan Ibu Sri Utami Andayani',
@@ -30,9 +30,9 @@ export const PAGES = {
 	// See You There page
 	SEE_YOU_THERE_SUBTITLE: "Wassalamu'alaikum Warahmatullahi Wabarakatuh",
 	SEE_YOU_THERE_DESCRIPTION:
-		'🌟 Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan do\'a restunya untuk pernikahan kami.\n' +
+		"🌟 Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan do'a restunya untuk pernikahan kami.\n" +
 		'~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
 		'📑 <i>"We can\'t wait to share this special moment with you. Your presence will make our day even more meaningful."</i>\n' +
 		'~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
-		'🙏 <b>Atas kehadiran dan do\'a restunya, kami ucapkan terima kasih.</b>',
+		"🙏 <b>Atas kehadiran dan do'a restunya, kami ucapkan terima kasih.</b>",
 } as const;

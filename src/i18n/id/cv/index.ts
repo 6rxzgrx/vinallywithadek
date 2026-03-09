@@ -10,10 +10,6 @@ import { PAGES } from './pages';
 import { COUNTDOWN } from './countdown';
 
 export const cv = {
-	// Titles
-	EXPERIENCE: 'Pengalaman',
-	EDUCATION: 'Pendidikan',
-
 	// Page Songs
 	Welcome: 'Selamat Datang',
 	Groom: 'Pengantin Pria',

@@ -29,7 +29,7 @@ export const CountdownHeader: FC<CountdownHeaderProps> = ({
 	// Target date: April 14, 2026 at 7:30 AM
 	// Memoize to prevent creating new Date object on every render
 	const defaultTargetDate = useMemo(
-		() => targetDate || new Date('2026-04-14T07:30:00'),
+		() => targetDate || new Date('2026-04-14T08:00:00'),
 		[targetDate],
 	);
 	const [timeLeft, setTimeLeft] = useState({
