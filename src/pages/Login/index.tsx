@@ -12,19 +12,15 @@ interface LoginProps {
 export const Login: FC<LoginProps> = ({ onLogin }) => {
 	const { t } = useTranslation(['login']);
 	const dispatch = useAppDispatch();
-	const [password, setPassword] = useState('');
+	const [credential, setCredential] = useState('');
 	const guestName = useAppSelector((state) => state.guest.name);
 	const username = guestName || t('Bapak/Ibu/Saudara/i');
 	const [error, setError] = useState('');
-	const [showPassword, setShowPassword] = useState(false);
 	const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
-	const [isAnimating, setIsAnimating] = useState(false);
 
 	const handleLogin = () => {
-		// Validate password
-		if (password === '140426') {
+		if (credential.trim() === '140426') {
 			setError('');
-			// Hide login overlay after successful login
 			onLogin();
 		} else {
 			setError(t('Incorrect password. Please try again.'));
@@ -42,7 +38,6 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 	return (
 		<div className="login-wrapper">
 			<div className="login-container">
-				{/* Logo */}
 				<div className="login-logo">
 					<img
 						src={getImagePublicPath('invitation-logo.svg')}
@@ -52,12 +47,10 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 					/>
 				</div>
 
-				{/* Welcome back text */}
 				<h1 className="login-title">
 					{t('Welcome back')}, {username}
 				</h1>
 
-				{/* Information message */}
 				<div className="login-info">
 					<div className="login-info-icon">
 						<img
@@ -79,117 +72,78 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 					</p>
 				</div>
 
-				{/* Password input */}
 				<div className="login-input-wrapper">
 					<label className="login-input-label">{t('Password')}</label>
 					<div className="login-input-container">
 						<input
-							type={showPassword ? 'text' : 'password'}
+							type="password"
 							className={`login-input ${error ? 'login-input-error' : ''}`}
 							placeholder=""
-							value={password}
+							value={credential}
 							onChange={(e) => {
-								setPassword(e.target.value);
-								setError(''); // Clear error when user types
+								setCredential(e.target.value);
+								setError('');
 							}}
-							onKeyPress={(e) => {
+							onKeyDown={(e) => {
 								if (e.key === 'Enter') {
 									handleLogin();
 								}
 							}}
 						/>
-						<button
-							type="button"
-							className={`login-password-toggle ${isAnimating ? 'bounce' : ''}`}
-							onClick={() => {
-								setIsAnimating(true);
-								setShowPassword(!showPassword);
-								setTimeout(() => setIsAnimating(false), 300);
-							}}
-							aria-label={
-								showPassword ? t('Hide password') : t('Show password')
-							}
-						>
-							{showPassword ? (
-								// Open eye icon (when password is visible)
-								<svg
-									width="20"
-									height="20"
-									viewBox="0 0 24 24"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-									role="img"
-									aria-hidden="true"
-								>
-									<path
-										d="M6.703 7.382A6.1 6.1 0 0 0 6.113 10c0 3.292 2.614 6 5.887 6s5.886-2.708 5.886-6c0-.936-.211-1.825-.589-2.618.573.341 1.115.744 1.634 1.204.674.596 1.77 1.793 2.683 3.414-.913 1.62-2.01 2.818-2.683 3.414C17.037 17.093 14.833 18 12 18s-5.037-.907-6.931-2.586c-.674-.596-1.77-1.793-2.683-3.414.913-1.62 2.01-2.818 2.683-3.414q.777-.691 1.634-1.204M12 4C8.671 4 5.996 5.091 3.742 7.089c-.896.794-2.3 2.353-3.381 4.453L.125 12l.236.458c1.082 2.1 2.485 3.659 3.381 4.453C5.996 18.908 8.672 20 12 20c3.329 0 6.004-1.091 8.258-3.089.896-.794 2.3-2.353 3.38-4.453l.237-.458-.236-.458c-1.082-2.1-2.485-3.659-3.381-4.453C18.004 5.09 15.328 4 12 4m0 2c2.125 0 3.886 1.77 3.886 4S14.125 14 12 14s-3.886-1.77-3.886-4S9.875 6 12 6"
-										fill="white"
-										fillOpacity="0.7"
-									/>
-								</svg>
-							) : (
-								// Closed eye icon with slash (when password is hidden)
-								<svg
-									width="20"
-									height="20"
-									viewBox="0 0 24 24"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M22.207 2.824a1 1 0 1 0-1.414-1.414L17.15 5.053C15.621 4.363 13.92 4 12 4 8.671 4 5.996 5.091 3.742 7.089c-.896.794-2.3 2.353-3.381 4.453L.125 12l.236.458c1.082 2.1 2.485 3.659 3.381 4.453q.417.37.853.697L1.793 20.41a1 1 0 1 0 1.414 1.414l3.126-3.126.003.002 1.503-1.503-.004-.001 1.73-1.73.004.001 1.567-1.567h-.004l4.68-4.681.001.004 1.595-1.595-.002-.003.11-.109.002.002 1.444-1.444-.003-.002zM14.884 7.32l-5.57 5.57A4.04 4.04 0 0 1 8.113 10c0-2.23 1.761-4 3.886-4 1.137 0 2.17.506 2.884 1.319zM7.9 14.304l-1.873 1.873a11 11 0 0 1-.957-.763C4.396 14.818 3.3 13.621 2.387 12c.913-1.62 2.01-2.818 2.683-3.414.519-.46 1.061-.863 1.634-1.204A6.1 6.1 0 0 0 6.113 10c0 1.681.682 3.21 1.786 4.304zm11.568-5.2 1.415-1.415a16.5 16.5 0 0 1 2.756 3.853l.236.458-.236.458c-1.082 2.1-2.485 3.659-3.381 4.453C18.004 18.908 15.328 20 12 20a13.2 13.2 0 0 1-3.08-.348l1.726-1.726q.652.075 1.354.074c2.833 0 5.037-.907 6.931-2.586.674-.596 1.77-1.793 2.683-3.414a14.5 14.5 0 0 0-2.146-2.896"
-										fill="white"
-										fillOpacity="0.7"
-									/>
-									<path
-										d="M17.843 10.729c-.328 2.755-2.494 4.956-5.24 5.24z"
-										fill="white"
-										fillOpacity="0.7"
-									/>
-								</svg>
-							)}
-						</button>
 					</div>
 					{error && <div className="login-error">{error}</div>}
 				</div>
 
-				{/* Login button */}
 				<button className="login-button" onClick={handleLogin}>
 					{t('Login')}
 				</button>
 
-				{/* Forgot password link */}
-				<button
-					className="login-forgot-password"
-					onClick={handleForgotPassword}
-				>
+				<button className="login-forgot-password" onClick={handleForgotPassword}>
 					{t('Forgot your Password?')}
 				</button>
+
+				<button
+					className="login-language-button"
+					onClick={() => dispatch(languageActions.openLanguageModal())}
+					aria-label={t('Select language')}
+				>
+					<svg
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						aria-hidden="true"
+					>
+						<path
+							d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+							fill="currentColor"
+						/>
+					</svg>
+					<span>{t('Select language')}</span>
+				</button>
+
+				<p className="login-footer-captcha">
+					This site is protected by reCAPTCHA and the Google{' '}
+					<a
+						href="https://policies.google.com/privacy"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Privacy Policy
+					</a>{' '}
+					and{' '}
+					<a
+						href="https://policies.google.com/terms"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Terms of Service
+					</a>{' '}
+					apply.
+				</p>
 			</div>
 
-			{/* Language selector - bottom sticky */}
-			<button
-				className="login-language-button"
-				onClick={() => dispatch(languageActions.openLanguageModal())}
-				aria-label={t('Select language')}
-			>
-				<svg
-					width="20"
-					height="20"
-					viewBox="0 0 24 24"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-					aria-hidden="true"
-				>
-					<path
-						d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-						fill="currentColor"
-					/>
-				</svg>
-				<span>{t('Select language')}</span>
-			</button>
-
-			{/* Forgot Password Modal */}
 			{showForgotPasswordModal && (
 				<div className="login-modal-overlay" onClick={handleCloseModal}>
 					<div className="login-modal" onClick={(e) => e.stopPropagation()}>

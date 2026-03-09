@@ -29,7 +29,7 @@ export const Shoot1: Song = {
 export const Shoot2: Song = {
 	name: 'Shoot 2',
 	imageUrl: getImagePublicPath('bigger-hits/shoot2.png'),
-	length: '4:15',
+	length: '6',
 	explanation: 'SHOOT_2_EXPLANATION',
 	images: [
 		getImagePublicPath('bigger-hits/shoot2-1.jpg'),
@@ -46,7 +46,7 @@ export const Shoot2: Song = {
 export const Shoot3: Song = {
 	name: 'Shoot 3',
 	imageUrl: getImagePublicPath('bigger-hits/shoot3.png'),
-	length: '6:20',
+	length: '6',
 	explanation: 'SHOOT_3_EXPLANATION',
 	images: [
 		getImagePublicPath('bigger-hits/shoot3-1.jpg'),

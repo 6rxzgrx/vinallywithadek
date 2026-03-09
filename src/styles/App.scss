@@ -70,7 +70,8 @@ body > .ant-modal-wrap .ant-modal-container {
 
 html,
 body {
-	font-family: SpotifyMixUI, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+	font-family:
+		SpotifyMixUI, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
 		CircularSp-Grek, CircularSp-Deva, var(sans-serif) !important;
 }
 
@@ -145,7 +146,10 @@ h3 {
 	width: 100%;
 	min-width: 350px;
 	max-width: 350px;
-	transition: width 0.3s ease-in-out, min-width 0.3s ease-in-out, max-width 0.3s ease-in-out;
+	transition:
+		width 0.3s ease-in-out,
+		min-width 0.3s ease-in-out,
+		max-width 0.3s ease-in-out;
 
 	// Collapsed state - narrow sidebar
 	&:not(.open) {
@@ -183,7 +187,9 @@ h3 {
 		border-radius: 0;
 		min-width: 100dvw;
 		max-width: 100dvw;
-		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+		transition:
+			transform 0.3s ease-in-out,
+			opacity 0.3s ease-in-out;
 		margin: 0;
 		box-sizing: border-box;
 
@@ -228,7 +234,9 @@ h3 {
 		border-radius: 50%;
 		align-items: center;
 		justify-content: center;
-		transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+		transition:
+			background-color 0.2s ease-in-out,
+			transform 0.2s ease-in-out;
 
 		&:hover {
 			background-color: rgba(255, 255, 255, 0.1);
@@ -322,9 +330,12 @@ h3 {
 	-webkit-app-region: no-drag !important;
 	background-color: #282828 !important;
 	border-radius: 4px !important;
-	-webkit-box-shadow: 0 16px 24px rgba(0, 0, 0, 0.3),
+	-webkit-box-shadow:
+		0 16px 24px rgba(0, 0, 0, 0.3),
 		0 6px 8px rgba(0, 0, 0, 0.2) !important;
-	box-shadow: 0 16px 24px rgba(0, 0, 0, 0.3), 0 6px 8px rgba(0, 0, 0, 0.2) !important;
+	box-shadow:
+		0 16px 24px rgba(0, 0, 0, 0.3),
+		0 6px 8px rgba(0, 0, 0, 0.2) !important;
 	max-height: calc(100vh - 24px) !important;
 	max-width: 350px !important;
 	min-width: 160px !important;
@@ -388,7 +399,7 @@ h3 {
 
 @media (max-width: $desktop-breakpoint) {
 	#root > div:first-child {
-		padding: 0px !important;
+		padding: 0px;
 	}
 }
 
@@ -455,7 +466,9 @@ h3 {
 
 	overscroll-behavior-y: contain;
 	overflow-y: auto;
-	transition: background-color 0.3s ease-in-out, visibility 0.2s ease-in-out;
+	transition:
+		background-color 0.3s ease-in-out,
+		visibility 0.2s ease-in-out;
 
 	@media (max-width: $desktop-breakpoint) {
 		visibility: hidden !important;
@@ -518,15 +531,34 @@ h3 {
 }
 
 .transition {
-	transition-property: color, background-color, border-color,
-		text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+	transition-property:
+		color,
+		background-color,
+		border-color,
+		text-decoration-color,
+		fill,
+		stroke,
+		opacity,
+		box-shadow,
+		transform,
+		filter,
 		-webkit-backdrop-filter;
-	transition-property: color, background-color, border-color,
-		text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-		backdrop-filter;
-	transition-property: color, background-color, border-color,
-		text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-		backdrop-filter, -webkit-backdrop-filter;
+	transition-property:
+		color, background-color, border-color, text-decoration-color, fill, stroke,
+		opacity, box-shadow, transform, filter, backdrop-filter;
+	transition-property:
+		color,
+		background-color,
+		border-color,
+		text-decoration-color,
+		fill,
+		stroke,
+		opacity,
+		box-shadow,
+		transform,
+		filter,
+		backdrop-filter,
+		-webkit-backdrop-filter;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 0.25s;
 }

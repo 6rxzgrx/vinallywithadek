@@ -15,8 +15,8 @@ function getPreloadImageUrls(): string[] {
 		img('pages/welcome.png'),
 		img('pages/bride.png'),
 		img('pages/groom.png'),
-		img('pages/bride-detail.png'),
-		img('pages/groom-detail.png'),
+		img('pages/bride-detail.jpg'),
+		img('pages/groom-detail.jpg'),
 		img('pages/see-you-there.png'),
 		// Login & UI
 		img('invitation-logo.svg'),
