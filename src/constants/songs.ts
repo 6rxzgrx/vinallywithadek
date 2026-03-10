@@ -7,18 +7,18 @@ export const AVAILABLE_SONGS = [
 		image: '1-salpriadi.png',
 	},
 	{
-		file: '2-hindia.mp3',
-		name: 'everything u are',
-		artist: 'Hindia',
-		color: '#393939',
-		image: '2-hindia.png',
-	},
-	{
 		file: '15-bruno.mp3',
 		name: 'Risk It All',
 		artist: 'Bruno Mars',
 		color: '#393939',
 		image: '15-bruno.png',
+	},
+	{
+		file: '2-hindia.mp3',
+		name: 'everything u are',
+		artist: 'Hindia',
+		color: '#393939',
+		image: '2-hindia.png',
 	},
 	{
 		file: '3-yahya.mp3',

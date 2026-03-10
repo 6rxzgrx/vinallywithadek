@@ -4,7 +4,7 @@ import { PageHorizontal } from './PageHorizontal';
 
 // Utils
 import { useTranslation } from 'react-i18next';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 // Redux
 import { useAppSelector, useAppDispatch } from '../../store/store';
@@ -19,6 +19,7 @@ import { biggerHitsPlaylists } from '../../constants/bigger-hits';
 import type { Playlist } from '../../interfaces/types';
 import type { Song } from '../../interfaces/types';
 import { PlaylistsSection } from './playlists';
+import { preloadHomeEntryAssets } from '../../utils/preloadAssets';
 
 interface HomeProps {
 	playlists: Playlist[];
@@ -86,6 +87,11 @@ const BiggestHitsPlaylists: FC<PlaylistListProps> = () => {
 
 const Home = () => {
 	const [color, setColor] = useState('rgb(66, 32, 35)');
+
+	useEffect(() => {
+		preloadHomeEntryAssets();
+	}, []);
+
 	return (
 		<div
 			className="Home-seccion"
