@@ -19,4 +19,6 @@ export const login = {
 	'Invitation Logo': 'Invitation Logo',
 	Info: 'Info',
 	'Select language': 'Select language',
+	Footer:
+		'This page is protected and crafted with ❤️ by and for Adek & Vivi © 2026',
 };

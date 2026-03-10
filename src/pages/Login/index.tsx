@@ -98,7 +98,10 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 					{t('Login')}
 				</button>
 
-				<button className="login-forgot-password" onClick={handleForgotPassword}>
+				<button
+					className="login-forgot-password"
+					onClick={handleForgotPassword}
+				>
 					{t('Forgot your Password?')}
 				</button>
 
@@ -123,25 +126,7 @@ export const Login: FC<LoginProps> = ({ onLogin }) => {
 					<span>{t('Select language')}</span>
 				</button>
 
-				<p className="login-footer-captcha">
-					This site is protected by reCAPTCHA and the Google{' '}
-					<a
-						href="https://policies.google.com/privacy"
-						target="_blank"
-						rel="noreferrer"
-					>
-						Privacy Policy
-					</a>{' '}
-					and{' '}
-					<a
-						href="https://policies.google.com/terms"
-						target="_blank"
-						rel="noreferrer"
-					>
-						Terms of Service
-					</a>{' '}
-					apply.
-				</p>
+				<p className="login-footer-captcha">{t('Footer')}</p>
 			</div>
 
 			{showForgotPasswordModal && (

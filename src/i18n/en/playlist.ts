@@ -15,7 +15,7 @@ export const playlist = {
 	'Failed to submit wish. Please try again.':
 		'Failed to submit wish. Please try again.',
 	'Thank you for your wishes, good pray back to you':
-		'Thank you for your wishes, good pray back to you',
+		'Thank you. Your wishes mean the world—may the joy return to you as well. -A&V',
 	'Choose Your Avatar': 'Choose Your Avatar',
 	'Reload Avatar': 'Reload Avatar',
 	'This name has already been used. Please use a different name.':

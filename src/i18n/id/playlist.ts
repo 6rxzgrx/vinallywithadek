@@ -15,7 +15,7 @@ export const playlist = {
 	'Failed to submit wish. Please try again.':
 		'Gagal mengirim ucapan. Silakan coba lagi.',
 	'Thank you for your wishes, good pray back to you':
-		'Terima kasih atas ucapan Anda, doa baik kembali kepada Anda',
+		'Terima kasih. Ucapanmu sangat berarti—semoga kebahagiaan itu kembali padamu juga. -A&V',
 	'Choose Your Avatar': 'Pilih Avatar Anda',
 	'Reload Avatar': 'Ubah Avatar',
 	'This name has already been used. Please use a different name.':

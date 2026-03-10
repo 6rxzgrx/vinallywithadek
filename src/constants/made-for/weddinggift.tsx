@@ -72,7 +72,7 @@ export const Gift5: Song = {
 	explanation: 'GIFT_EXPLANATION_5',
 	types: [WeddingGiftTypesEnum.GIFT_2],
 	paymentDetails: {
-		accountNumber: '106892686975',
+		accountNumber: '105840042798',
 		accountName: 'Alviana Juni Susanti',
 	},
 	skills: [],

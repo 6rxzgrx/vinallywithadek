@@ -19,4 +19,6 @@ export const login = {
 	'Invitation Logo': 'Logo Undangan',
 	Info: 'Info',
 	'Select language': 'Pilih bahasa',
+	Footer:
+		'Halaman ini dilindungi dan dibuat dengan ❤️ oleh dan untuk Adek & Vivi © 2026',
 };
