@@ -40,6 +40,9 @@ export const PlaylistControls: FC<{ playlist: Playlist }> = ({ playlist }) => {
 	const [form] = Form.useForm();
 	const [loading, setLoading] = useState(false);
 	const [avatarSeed, setAvatarSeed] = useState<string>('');
+	const [successGifSrc, setSuccessGifSrc] = useState(
+		getImagePublicPath('wedding-wish/giphy.gif'),
+	);
 
 	// Generate random seed for avatar
 	const generateRandomSeed = (): string => {
@@ -58,6 +61,13 @@ export const PlaylistControls: FC<{ playlist: Playlist }> = ({ playlist }) => {
 
 	// Check if this is the Wedding Wish playlist
 	const isWeddingWishPlaylist = playlist.name === WeddingWish.name;
+
+	// Safari can keep GIF on first frame when cached; force a fresh URL per open.
+	useEffect(() => {
+		if (!isSuccessModalOpen) return;
+		const baseGif = getImagePublicPath('wedding-wish/giphy.gif');
+		setSuccessGifSrc(`${baseGif}?t=${Date.now()}`);
+	}, [isSuccessModalOpen]);
 
 	const [tor] = useTranslation(['order']);
 	const [t] = useTranslation(['playlist']);
@@ -346,9 +356,10 @@ export const PlaylistControls: FC<{ playlist: Playlist }> = ({ playlist }) => {
 					<div className="wish-success-content">
 						<div className="wish-success-image">
 							<img
-								src={getImagePublicPath('wedding-wish/giphy.gif')}
+								src={successGifSrc}
 								alt="Thank you"
 								className="success-image"
+								loading="eager"
 							/>
 						</div>
 						<h2 className="wish-success-title">

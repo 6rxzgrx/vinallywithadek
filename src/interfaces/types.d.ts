@@ -30,6 +30,7 @@ export type Song = {
 	playstore?: string;
 	appstore?: string;
 	instagram?: string;
+	instagramUser?: string;
 	eventDate?: string;
 	eventTime?: string;
 	eventPlace?: string;

@@ -63,8 +63,16 @@ const Profile: FC<{ song: Song }> = ({ song }) => {
 								href={song.instagram}
 								className="link-social-button"
 								rel="noreferrer"
+								style={{
+									display: 'inline-flex',
+									alignItems: 'center',
+									gap: 6,
+								}}
 							>
 								<FaInstagram />
+								<span style={{ fontSize: 13, paddingRight: 6 }}>
+									{song.instagramUser}
+								</span>
 							</a>
 						</Tooltip>
 					) : null}

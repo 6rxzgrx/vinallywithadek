@@ -19,4 +19,5 @@ export const playingBar = {
 	'Payment Details': 'Payment Details',
 	Home: 'Home',
 	Search: 'Search',
+	'Song Preview': 'Maps Preview',
 };

@@ -19,4 +19,5 @@ export const playingBar = {
 	'Payment Details': 'Detail Pembayaran',
 	Home: 'Beranda',
 	Search: 'Cari',
+	'Song Preview': 'Pratinjau Peta',
 };

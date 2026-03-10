@@ -33,7 +33,7 @@ export const WEDDING_GIFT = {
 	GIFT_EXPLANATION_4:
 		'Anda dapat top up kado ke nomor DANA ini. Terima kasih atas kebaikan Anda.',
 	GIFT_EXPLANATION_5:
-		'Anda dapat top up kado ke akun JAGO ini. Terima kasih atas kebaikan Anda.',
+		'Anda dapat mentransfer kado ke akun JAGO ini. Terima kasih atas kebaikan Anda.',
 	GIFT_EXPLANATION_6:
 		'Anda dapat top up kado ke akun ShopeePay ini. Terima kasih atas kebaikan Anda.',
 } as const;

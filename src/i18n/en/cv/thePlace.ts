@@ -1,6 +1,6 @@
 export const THE_PLACE = {
 	'The Place': 'Vow & Space',
-	THE_PLACE_DESCRIPTION: 'The beautiful venue where we will exchange our vows',
+	THE_PLACE_DESCRIPTION: 'Where our forever begins: the vow exchange.',
 	'Gedung Caraka Putra (GCP)': 'Gedung Caraka Putra (GCP)',
 	GEDUNG_CARAKA_PUTRA_LENGTH: 'Kesamben, Blitar',
 	GEDUNG_CARAKA_PUTRA_DESCRIPTION:

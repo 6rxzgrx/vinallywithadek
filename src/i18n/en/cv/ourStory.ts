@@ -1,7 +1,8 @@
 import { getImagePublicPath } from '@/utils/getPublicPath';
 export const OUR_STORY = {
 	'A - V': 'A - V',
-	OUR_STORY_DESCRIPTION: 'Our journey together, from the beginning to forever',
+	OUR_STORY_DESCRIPTION:
+		'Our journey together, from the beginning until forever',
 
 	STORY_NAME_1: 'At a Point Written by Fate',
 	STORY_LENGTH_1: '2019',
@@ -13,7 +14,7 @@ export const OUR_STORY = {
 	STORY_DETAILS_2: `<img src="${getImagePublicPath('ourstory/story2-1.png')}" alt="Story 2" />Time moved on, carrying us in different directions. Nearly three years passed without stories, without feelings, without anything at all. Yet the universe never truly forgets. In an unplanned moment, it brought us together again, as if reminding us that feelings once born never truly disappear; they simply wait for the right time to bloom once more.`,
 	STORY_EXPLANATION_2: 'Where our story began again.',
 
-	STORY_NAME_3: 'When Trials Came One After Another',
+	STORY_NAME_3: 'When the hard times came one after another',
 	STORY_LENGTH_3: '2023',
 	STORY_DETAILS_3: `<img src="${getImagePublicPath('ourstory/story3-1.png')}" alt="Story 3" />The journey was not always easy. There were times when steps felt heavy and distance rose like an unyielding wall. Time, circumstances, and challenges came one after another, testing how strong this love could endure. There were silent pauses, long moments of stillness, and unspoken longing—yet never a true goodbye.`,
 	STORY_EXPLANATION_3: 'Would we make it?',
@@ -30,6 +31,6 @@ export const OUR_STORY = {
 
 	STORY_NAME_6: 'A Step Taken with Intention',
 	STORY_LENGTH_6: '2026',
-	STORY_DETAILS_6: `<img src="${getImagePublicPath('ourstory/story6-1.png')}" alt="Story 6" />Now, with gratitude and prayer, we choose to walk the path blessed by God. Uniting two stories, two journeys, and two hearts into one sacred bond. Marriage is not the end of our story, but the beginning of a new one—to hold each other, in joy and in sorrow, until the end of time.`,
+	STORY_DETAILS_6: `<img src="${getImagePublicPath('ourstory/story6-1.png')}" alt="Story 6" />Now, with gratitude and prayer, we choose to walk the path blessed by God. Uniting two stories, two journeys, and two hearts into one sacred bond. Marriage is not the end of our story, but the beginning of a new one-to hold each other, in the lovely days, even the bad one. until the end of time.`,
 	STORY_EXPLANATION_6: 'Forever.',
 } as const;

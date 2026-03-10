@@ -70,7 +70,7 @@ export const Gift5: Song = {
 	imageUrl: getImagePublicPath('wedding-gift/jago.png'),
 	length: 'GIFT_5_ARTIST',
 	explanation: 'GIFT_EXPLANATION_5',
-	types: [WeddingGiftTypesEnum.GIFT_2],
+	types: [WeddingGiftTypesEnum.GIFT_1],
 	paymentDetails: {
 		accountNumber: '105840042798',
 		accountName: 'Alviana Juni Susanti',
@@ -97,7 +97,7 @@ export const WeddingGift = {
 	name: 'Wedding Gift',
 	description: 'WEDDING_GIFT_DESCRIPTION',
 	color: '#6C3082',
-	songs: [Gift1, Gift2, Gift3, Gift4, Gift5, Gift6],
+	songs: [Gift1, Gift2, Gift3, Gift5, Gift4, Gift6],
 	filters: [WeddingGiftTypesEnum.GIFT_1, WeddingGiftTypesEnum.GIFT_2],
 	getImage(lang) {
 		return getAlbumPath('WeddingGift-cover', lang, 'png');

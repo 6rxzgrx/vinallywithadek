@@ -18,6 +18,7 @@ export const groomSong: Song = {
 	artist: groomPage.subtitle,
 	description: groomPage.content.join('\n'),
 	instagram: 'https://www.instagram.com/adekmzrk',
+	instagramUser: '@adekmzrk',
 	skills: [],
 };
 
@@ -27,6 +28,7 @@ export const brideSong: Song = {
 	artist: bridePage.subtitle,
 	description: bridePage.content.join('\n'),
 	instagram: 'https://www.instagram.com/alvianajuni',
+	instagramUser: '@alvianajuni',
 	skills: [],
 };
 

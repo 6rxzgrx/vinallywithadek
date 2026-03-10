@@ -1,5 +1,5 @@
 export const WEDDING_GIFT = {
-	'Wedding Gift': 'WeddinGift',
+	'Wedding Gift': "Weddin'Gift",
 	WEDDING_GIFT_DESCRIPTION:
 		'Your blessing and coming to our wedding are enough for us. However, if you want to give a gift we provide a Digital Envelope to make it easier for you. Thank you.',
 
@@ -33,7 +33,7 @@ export const WEDDING_GIFT = {
 	GIFT_EXPLANATION_4:
 		'You can top up your gift to this DANA number. Thank you for your kindness.',
 	GIFT_EXPLANATION_5:
-		'You can top up your gift to this JAGO account. Thank you for your kindness.',
+		'You can transfer your gift to this JAGO account. Thank you for your kindness.',
 	GIFT_EXPLANATION_6:
 		'You can top up your gift to this ShopeePay account. Thank you for your kindness.',
 } as const;

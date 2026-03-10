@@ -10,7 +10,7 @@ export const TOP_SCENE = {
 	SCENE_2_EXPLANATION: 'Where everything quietly began.',
 
 	'Scene 3': '-day by day-',
-	SCENE_3_EXPLANATION: 'Across every distance, I choose you.',
+	SCENE_3_EXPLANATION: 'through every single mile; I choose u.',
 
 	'Scene 4': 'honest.',
 	SCENE_4_EXPLANATION: 'Where hearts spoke without disguise.',

@@ -25,7 +25,7 @@ export const PAGES = {
 		'<p>Meet the bride - a beautiful soul who lights up every room she enters.</p>\n' +
 		`<img src="${getImagePublicPath('pages/bride-detail.jpg')}" alt="Bride" />\n` +
 		'👰‍♀️ <b>Alviana Juni Susanti, S.Tr.Kom.</b>\n' +
-		'Fourth daughter of Mr. Kamani (deceased) and Mrs. Sri Utami Andayani',
+		'Fourth daughter of the late Mr. Kamani and Mrs. Sri Utami Andayani',
 
 	// See You There page
 	SEE_YOU_THERE_SUBTITLE: "Wassalamu'alaikum Warahmatullahi Wabarakatuh",

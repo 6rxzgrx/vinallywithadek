@@ -42,7 +42,7 @@ export const Scene3: Song = {
 export const Scene4: Song = {
 	name: 'Scene 4',
 	imageUrl: getImagePublicPath('bigger-hits/scene4.png'),
-	length: '20s',
+	length: '21s',
 	explanation: 'SCENE_4_EXPLANATION',
 	video: getVideoPublicPath('video4.mp4'),
 	skills: [],
@@ -52,7 +52,7 @@ export const Scene4: Song = {
 export const Scene5: Song = {
 	name: 'Scene 5',
 	imageUrl: getImagePublicPath('bigger-hits/scene5.png'),
-	length: '24s',
+	length: '25s',
 	explanation: 'SCENE_5_EXPLANATION',
 	video: getVideoPublicPath('video5.mp4'),
 	skills: [],
@@ -62,7 +62,7 @@ export const Scene5: Song = {
 export const Scene6: Song = {
 	name: 'Scene 6',
 	imageUrl: getImagePublicPath('bigger-hits/scene6.png'),
-	length: '18s',
+	length: '19s',
 	explanation: 'SCENE_6_EXPLANATION',
 	video: getVideoPublicPath('video6.mp4'),
 	skills: [],

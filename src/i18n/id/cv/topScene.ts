@@ -1,7 +1,7 @@
 export const TOP_SCENE = {
 	'uncutted memories': 'uncutted memories',
 	TOP_SCENE_DESCRIPTION:
-		'Momen asli. Perasaan asli. Tanpa gangguan. Hanya kami.',
+		'Momen Nyata. Perasaan yang nyata. Tidak Ada Gangguan. Hanya kami.',
 
 	'Scene 1': 'selangkah lebih dekat; tumbuh.',
 	SCENE_1_EXPLANATION:
@@ -11,7 +11,7 @@ export const TOP_SCENE = {
 	SCENE_2_EXPLANATION: 'Di sinilah semuanya diam-diam bermula.',
 
 	'Scene 3': '-hari demi hari-',
-	SCENE_3_EXPLANATION: 'Melintasi setiap jarak, aku tetap memilihmu.',
+	SCENE_3_EXPLANATION: 'Melintasi setiap masa, aku tetap memilihmu.',
 
 	'Scene 4': 'jujur.',
 	SCENE_4_EXPLANATION: 'Saat hati berbicara tanpa perlu disembunyikan.',

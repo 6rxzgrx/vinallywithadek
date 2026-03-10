@@ -2,7 +2,7 @@ import { getImagePublicPath } from '@/utils/getPublicPath';
 
 export const OUR_STORY = {
 	'A - V': 'A - V',
-	OUR_STORY_DESCRIPTION: 'Perjalanan kami, dari awal hingga selamanya',
+	OUR_STORY_DESCRIPTION: 'Perjalanan kami, dari sekarang sampai selamanya',
 
 	STORY_NAME_1: 'Di Titik yang Telah Ditentukan',
 	STORY_LENGTH_1: '2019',
@@ -14,7 +14,7 @@ export const OUR_STORY = {
 	STORY_DETAILS_2: `<img src="${getImagePublicPath('ourstory/story2-1.png')}"  alt="Story 2" />Waktu kemudian berjalan membawa kami pada arah yang berbeda. Hampir tiga tahun berlalu tanpa cerita, tanpa rasa, tanpa apa-apa. Namun semesta rupanya tak pernah benar-benar lupa. Pada satu waktu yang tak direncanakan, kami kembali dipertemukan, seolah diingatkan bahwa rasa yang pernah ada tak pernah benar-benar hilang; ia hanya berdiam, menunggu saat yang tepat untuk tumbuh kembali.`,
 	STORY_EXPLANATION_2: 'Dimana kami memulai kisah ini lagi',
 
-	STORY_NAME_3: 'Ketika Ujian Silih Berganti',
+	STORY_NAME_3: 'Ketika masa-masa sulit datang berturut-turut',
 	STORY_LENGTH_3: '2023',
 	STORY_DETAILS_3: `<img src="${getImagePublicPath('ourstory/story3-1.png')}"  alt="Story 3" />Perjalanan ini pun tak selalu berjalan mudah. Ada masa ketika langkah terasa berat dan jarak menjelma tembok yang tinggi. Waktu, keadaan, dan rintangan datang silih berganti, menguji seberapa kuat rasa ini bertahan. Ada jeda yang sunyi, ada diam yang panjang, dan ada rindu yang tak sempat terucap—namun tak sekalipun kami benar-benar berpisah.`,
 	STORY_EXPLANATION_3: 'Apakah kami akan berhasil?',
@@ -31,6 +31,6 @@ export const OUR_STORY = {
 
 	STORY_NAME_6: 'Langkah yang Diniatkan',
 	STORY_LENGTH_6: '2026',
-	STORY_DETAILS_6: `<img src="${getImagePublicPath('ourstory/story6-1.png')}"  alt="Story 6" />Kini, dengan penuh syukur dan doa, kami memilih melangkah ke jalan yang diridai-Nya. Menyatukan dua cerita, dua perjalanan, dan dua hati dalam satu ikatan suci. Pernikahan bukanlah akhir dari kisah kami, melainkan awal dari perjalanan baru—untuk saling menggenggam, dalam suka dan duka, hingga akhir waktu.`,
+	STORY_DETAILS_6: `<img src="${getImagePublicPath('ourstory/story6-1.png')}"  alt="Story 6" />Kini, dengan penuh syukur dan doa, kami memilih melangkah ke jalan yang diridai-Nya. Menyatukan dua cerita, dua perjalanan, dan dua hati dalam satu ikatan suci. Pernikahan bukanlah akhir dari kisah kita, melainkan awal dari kisah baru—untuk saling berpegangan tangan, di hari-hari indah, bahkan di hari-hari buruk, hingga akhir waktu.`,
 	STORY_EXPLANATION_6: 'Untuk selamanya',
 } as const;

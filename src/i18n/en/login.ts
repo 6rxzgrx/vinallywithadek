@@ -5,7 +5,7 @@ export const login = {
 		"You're invited to the wedding of <1>{{brideGroom}}</1> on {{date}} in <2>{{location}}</2>. You can access our invitation here with the correct password.",
 	brideGroom: 'Adek & Vivi',
 	date: '14th of February 2026',
-	location: 'Kesamben, Blitar.',
+	location: 'Kesamben, Blitar',
 	Password: 'Password',
 	'Hide password': 'Hide password',
 	'Show password': 'Show password',
