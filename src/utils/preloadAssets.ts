@@ -2,6 +2,7 @@ import {
 	getAlbumPath,
 	getAlbumPathWithoutLang,
 	getImagePublicPath,
+	getSongPath,
 } from './getPublicPath';
 import { AVAILABLE_SONGS } from '@/constants/songs';
 import { biggerHitsPlaylists } from '@/constants/bigger-hits';
@@ -70,12 +71,33 @@ function preloadVideo(url: string): Promise<void> {
 	});
 }
 
+function preloadAudio(url: string): Promise<void> {
+	return new Promise((resolve) => {
+		const audio = new Audio();
+		audio.preload = 'auto';
+
+		const done = () => {
+			audio.onloadeddata = null;
+			audio.onerror = null;
+			resolve();
+		};
+
+		audio.onloadeddata = done;
+		audio.onerror = done; // Don't block on failed assets
+		audio.src = url;
+		audio.load();
+	});
+}
+
 function uniqueUrls(urls: string[]): string[] {
 	return Array.from(new Set(urls));
 }
 
 const PUBLIC_VIDEO_MODULES = import.meta.glob(
 	'/public/videos/**/*.{mp4,webm,ogg,mov,m4v}',
+);
+const PUBLIC_WEDDING_WISH_GIF_MODULES = import.meta.glob(
+	'/public/images/wedding-wish/**/*.gif',
 );
 
 function toPublicAssetUrl(projectPath: string): string {
@@ -87,6 +109,14 @@ function toPublicAssetUrl(projectPath: string): string {
 function getAllPublicVideoUrls(): string[] {
 	return uniqueUrls(
 		Object.keys(PUBLIC_VIDEO_MODULES).map((projectPath) =>
+			toPublicAssetUrl(projectPath),
+		),
+	);
+}
+
+function getWeddingWishGifUrls(): string[] {
+	return uniqueUrls(
+		Object.keys(PUBLIC_WEDDING_WISH_GIF_MODULES).map((projectPath) =>
 			toPublicAssetUrl(projectPath),
 		),
 	);
@@ -116,12 +146,16 @@ function getBiggerHitsAssetUrls(): {
 	};
 }
 
+function getAllSongAudioUrls(): string[] {
+	return uniqueUrls(AVAILABLE_SONGS.map((song) => getSongPath(song.file)));
+}
+
 /**
  * Preload all images and videos used in the app.
  * Resolves when all assets have been requested (failures don't block).
  */
 export function preloadAllAssets(): Promise<void> {
-	const imageUrls = getPreloadImageUrls();
+	const imageUrls = uniqueUrls([...getPreloadImageUrls(), ...getWeddingWishGifUrls()]);
 	//const videoUrls = getPreloadVideoUrls();
 	const imagePromises = imageUrls.map(preloadImage);
 	//const videoPromises = videoUrls.map(preloadVideo);
@@ -135,10 +169,12 @@ export function preloadAllAssets(): Promise<void> {
 export function preloadHomeEntryAssets(): Promise<void> {
 	const { imageUrls, videoUrls } = getBiggerHitsAssetUrls();
 	const homeVideoUrls = getAllPublicVideoUrls();
+	const songAudioUrls = getAllSongAudioUrls();
 	const finalVideoUrls = uniqueUrls([...videoUrls, ...homeVideoUrls]);
 
 	const imagePromises = imageUrls.map(preloadImage);
 	const videoPromises = finalVideoUrls.map(preloadVideo);
+	const audioPromises = songAudioUrls.map(preloadAudio);
 
-	return Promise.all([...imagePromises, ...videoPromises]).then(() => {});
+	return Promise.all([...imagePromises, ...videoPromises, ...audioPromises]).then(() => {});
 }
