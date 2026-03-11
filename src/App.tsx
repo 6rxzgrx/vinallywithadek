@@ -112,6 +112,17 @@ const QueryParamMonitor = () => {
 	return null;
 };
 
+// Scroll to top when route changes (fixes mobile view showing center instead of top)
+const ScrollToTop = ({ containerRef }: { containerRef: React.RefObject<HTMLDivElement | null> }) => {
+	const location = useLocation();
+
+	useEffect(() => {
+		containerRef.current?.scrollTo({ top: 0, behavior: 'instant' });
+	}, [location.pathname]);
+
+	return null;
+};
+
 const RootComponent = () => {
 	const container = useRef<HTMLDivElement | null>(null);
 	const language = useAppSelector((state) => state.language.language);
@@ -245,6 +256,7 @@ const RootComponent = () => {
 	return (
 		<Router basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
 			<QueryParamMonitor />
+			{!showLogin && <ScrollToTop containerRef={container} />}
 			{/* Show only Login page when not logged in */}
 			{showLogin ? (
 				<>
