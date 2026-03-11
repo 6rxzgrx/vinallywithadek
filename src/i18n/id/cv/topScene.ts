@@ -14,7 +14,7 @@ export const TOP_SCENE = {
 	SCENE_3_EXPLANATION: 'Melintasi setiap masa, aku tetap memilihmu.',
 
 	'Scene 4': 'jujur.',
-	SCENE_4_EXPLANATION: 'Saat hati berbicara tanpa perlu disembunyikan.',
+	SCENE_4_EXPLANATION: 'Saat hati berbicara tanpa keraguan.',
 
 	'Scene 5': ';keyakinan yang tenang (jawabannya).',
 	SCENE_5_EXPLANATION:

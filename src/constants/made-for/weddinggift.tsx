@@ -97,7 +97,7 @@ export const WeddingGift = {
 	name: 'Wedding Gift',
 	description: 'WEDDING_GIFT_DESCRIPTION',
 	color: '#6C3082',
-	songs: [Gift1, Gift2, Gift3, Gift5, Gift4, Gift6],
+	songs: [Gift3, Gift1, Gift2, Gift4, Gift6, Gift5],
 	filters: [WeddingGiftTypesEnum.GIFT_1, WeddingGiftTypesEnum.GIFT_2],
 	getImage(lang) {
 		return getAlbumPath('WeddingGift-cover', lang, 'png');

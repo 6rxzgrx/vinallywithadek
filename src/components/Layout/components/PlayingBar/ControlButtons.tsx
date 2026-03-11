@@ -40,7 +40,7 @@ const PlayButton = () => {
 const SkipNextButton = () => {
   const dispatch = useAppDispatch();
   return (
-    <button onClick={() => dispatch(playingBarActions.previousSong())}>
+    <button onClick={() => dispatch(playingBarActions.nextSong())}>
       <SkipNext />
     </button>
   );

@@ -26,7 +26,7 @@ export const OUR_STORY = {
 
 	STORY_NAME_5: 'Rasa yang Menjelma Keyakinan',
 	STORY_LENGTH_5: '2025',
-	STORY_DETAILS_5: `<img src="${getImagePublicPath('ourstory/story5-1.png')}" alt="Story 5" />Di dalam proses itu, kami belajar tentang sabar, tentang saling menguatkan, dan tentang menerima satu sama lain apa adanya. Rasa yang dahulu tumbuh perlahan kini menjelma keyakinan—bahwa ini bukan sekadar pertemuan biasa, melainkan rencana yang telah lama dituliskan.`,
+	STORY_DETAILS_5: `<img src="${getImagePublicPath('ourstory/story5-1.png')}" alt="Story 5" />Di dalam proses itu, kami belajar tentang sabar, tentang saling menguatkan, dan tentang menerima satu sama lain apa adanya. Rasa yang dahulu tumbuh perlahan kini menjelma keyakinan—bahwa ini bukan sekadar pertemuan biasa, melainkan takdir yang telah lama dituliskan.`,
 	STORY_EXPLANATION_5: 'Menuntun kami semakin dekat',
 
 	STORY_NAME_6: 'Langkah yang Diniatkan',

@@ -26,7 +26,7 @@ export const OUR_STORY = {
 
 	STORY_NAME_5: 'A Love That Became Faith',
 	STORY_LENGTH_5: '2025',
-	STORY_DETAILS_5: `<img src="${getImagePublicPath('ourstory/story5-1.png')}" alt="Story 5" />Along the way, we learned patience, how to strengthen one another, and how to accept each other as we are. What once grew slowly has now transformed into faith—that this is not merely a meeting, but a plan written long ago.`,
+	STORY_DETAILS_5: `<img src="${getImagePublicPath('ourstory/story5-1.png')}" alt="Story 5" />Along the way, we learned patience, how to strengthen one another, and how to accept each other as we are. What once grew slowly has now transformed into faith—that this is not merely a meeting, but a fate written long ago.`,
 	STORY_EXPLANATION_5: 'Bringing us closer.',
 
 	STORY_NAME_6: 'A Step Taken with Intention',
