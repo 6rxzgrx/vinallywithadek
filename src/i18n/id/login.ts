@@ -4,7 +4,7 @@ export const login = {
 	invitationInfo:
 		'Anda diundang ke pernikahan <1>{{brideGroom}}</1> pada {{date}} di <2>{{location}}</2>. Anda dapat mengakses undangan kami dengan kata sandi yang benar.',
 	brideGroom: 'Adek & Vivi',
-	date: '14 Februari 2026',
+	date: '14 April 2026',
 	location: 'Kesamben, Blitar',
 	Password: 'Kata sandi',
 	'Hide password': 'Sembunyikan kata sandi',
