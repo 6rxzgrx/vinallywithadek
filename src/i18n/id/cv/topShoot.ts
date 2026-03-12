@@ -7,7 +7,7 @@ export const TOP_SHOOT = {
 	'Shoot 2': 'suci.',
 	SHOOT_2_EXPLANATION:
 		'Ritual yang bersinar dengan keagungan, cinta, dan makna.',
-	'Shoot 3': '<b>berani</> dan tegas',
+	'Shoot 3': '<b>berani</b> dan tegas',
 	SHOOT_3_EXPLANATION:
 		'Langkah yang percaya diri, tanpa rasa takut, ditangkap dalam bentuk yang paling murni.',
 } as const;
