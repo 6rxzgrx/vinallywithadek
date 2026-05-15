@@ -26,10 +26,10 @@
 	"scripts": {
 		"dev": "vite",
 		"start": "vite",
-		"build": "vite build && node -e \"require('fs').copyFileSync('build/index.html', 'build/404.html')\"",
+		"build": "vite build",
 		"preview": "vite preview",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build"
+		"deploy": "gh-pages -d dist"
 	},
 	"eslintConfig": {
 		"extends": [
